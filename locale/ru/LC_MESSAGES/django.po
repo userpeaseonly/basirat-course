@@ -1,0 +1,93 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Basirat\n"
+"POT-Creation-Date: 2025-11-30 00:00+0000\n"
+"PO-Revision-Date: 2025-11-30 00:00+0000\n"
+"Last-Translator: Basirat Team <support@basirat.local>\n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "All rights reserved."
+msgstr "Все права защищены."
+
+msgid "Student"
+msgstr "Студент"
+
+msgid "Administrator"
+msgstr "Администратор"
+
+msgid "Logout"
+msgstr "Выйти"
+
+msgid "Login"
+msgstr "Вход"
+
+msgid "Enter your phone number (e.g. +998901234567)"
+msgstr "Введите номер телефона (например, +998901234567)"
+
+msgid "Sign in"
+msgstr "Войти"
+
+msgid "Home - Basirat"
+msgstr "Главная - Basirat"
+
+msgid "Welcome, %(username)s!"
+msgstr "Добро пожаловать, %(username)s!"
+
+msgid "You are logged in as a student."
+msgstr "Вы вошли как студент."
+
+msgid "You are logged in as an administrator."
+msgstr "Вы вошли как администратор."
+
+msgid "User Details"
+msgstr "Информация о пользователе"
+
+msgid "Phone number:"
+msgstr "Номер телефона:"
+
+msgid "Status:"
+msgstr "Статус:"
+
+msgid "Name:"
+msgstr "Имя:"
+
+msgid "Surname:"
+msgstr "Фамилия:"
+
+msgid "Registered on:"
+msgstr "Дата регистрации:"
+
+msgid "Quick Links"
+msgstr "Быстрые ссылки"
+
+msgid "Admin Panel"
+msgstr "Панель администратора"
+
+msgid "System Settings"
+msgstr "Настройки системы"
+
+msgid "API Docs"
+msgstr "Документация API"
+
+msgid "Swagger API documentation"
+msgstr "Документация Swagger API"
+
+msgid "Sign out"
+msgstr "Выйти"
+
+msgid "Phone number"
+msgstr "Номер телефона"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "You do not have permission to access this page. Only students may enter."
+msgstr "У вас нет прав на доступ к этой странице. Только студенты могут заходить."
+
+msgid "You do not have permission to access this page. Only administrators may enter."
+msgstr "У вас нет прав на доступ к этой странице. Только администраторы могут заходить."

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Courses" %}{% endblock %}
+{% block content %}
+<div class="container mx-auto py-10">
+  <div class="text-center max-w-3xl mx-auto mb-6">
+    <h1 class="text-3xl font-semibold text-slate-800 mb-2">{% trans "Courses" %}</h1>
+    <p class="text-slate-500">{% trans "Explore available and upcoming learning paths created by the Basirat team." %}</p>
+  </div>
+
+  {% if courses %}
+    <div class="grid gap-6">
+      {% for course in courses %}
+        <article class="bg-white rounded-2xl shadow-lg p-6 border border-slate-100">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-2xl font-semibold text-slate-900">{{ course.title }}</h2>
+            <span class="text-xs uppercase tracking-wide text-slate-500">{% trans "Course" %}</span>
+          </div>
+          <p class="text-slate-600 mb-4">{{ course.summary|default:_('No summary yet.') }}</p>
+          <div class="flex items-center gap-4">
+            <a href="{% url 'course_detail' course.slug %}" class="text-blue-600 hover:text-blue-800 font-semibold">{% trans "View course" %}</a>
+            <span class="text-sm text-slate-500">{% trans "Lessons" %}: {{ course.lessons.count }}</span>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="bg-white rounded-2xl shadow-xl p-8 text-center border border-dashed border-slate-300">
+      <p class="text-slate-500">{% trans "Course catalogue is empty at the moment. Please check back later." %}</p>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

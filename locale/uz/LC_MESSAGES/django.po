@@ -1,0 +1,93 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Basirat\n"
+"POT-Creation-Date: 2025-11-30 00:00+0000\n"
+"PO-Revision-Date: 2025-11-30 00:00+0000\n"
+"Last-Translator: Basirat Team <support@basirat.local>\n"
+"Language-Team: Uzbek\n"
+"Language: uz\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "All rights reserved."
+msgstr "Barcha huquqlar himoyalangan."
+
+msgid "Student"
+msgstr "Talaba"
+
+msgid "Administrator"
+msgstr "Administrator"
+
+msgid "Logout"
+msgstr "Chiqish"
+
+msgid "Login"
+msgstr "Kirish"
+
+msgid "Enter your phone number (e.g. +998901234567)"
+msgstr "Telefon raqamingizni kiriting (masalan: +998901234567)"
+
+msgid "Sign in"
+msgstr "Kirish"
+
+msgid "Home - Basirat"
+msgstr "Bosh sahifa - Basirat"
+
+msgid "Welcome, %(username)s!"
+msgstr "Xush kelibsiz, %(username)s!"
+
+msgid "You are logged in as a student."
+msgstr "Siz talaba sifatida tizimga kirdingiz."
+
+msgid "You are logged in as an administrator."
+msgstr "Siz administrator sifatida tizimga kirdingiz."
+
+msgid "User Details"
+msgstr "Foydalanuvchi ma'lumotlari"
+
+msgid "Phone number:"
+msgstr "Telefon raqami:"
+
+msgid "Status:"
+msgstr "Holat:"
+
+msgid "Name:"
+msgstr "Ism:"
+
+msgid "Surname:"
+msgstr "Familiya:"
+
+msgid "Registered on:"
+msgstr "Ro'yxatdan o'tgan sana:"
+
+msgid "Quick Links"
+msgstr "Tezkor havolalar"
+
+msgid "Admin Panel"
+msgstr "Admin Paneli"
+
+msgid "System Settings"
+msgstr "Tizim sozlamalari"
+
+msgid "API Docs"
+msgstr "API hujjatlari"
+
+msgid "Swagger API documentation"
+msgstr "Swagger API hujjatlari"
+
+msgid "Sign out"
+msgstr "Chiqish"
+
+msgid "Phone number"
+msgstr "Telefon raqami"
+
+msgid "Password"
+msgstr "Parol"
+
+msgid "You do not have permission to access this page. Only students may enter."
+msgstr "Siz ushbu sahifaga kirish huquqiga ega emassiz. Faqat talabalar kirishi mumkin."
+
+msgid "You do not have permission to access this page. Only administrators may enter."
+msgstr "Siz ushbu sahifaga kirish huquqiga ega emassiz. Faqat administratorlar kirishi mumkin."

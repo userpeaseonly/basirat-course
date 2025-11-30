@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Create account" %}{% endblock %}
+{% block content %}
+<div class="container mx-auto py-6">
+    <h1 class="text-3xl font-bold text-center mb-4">{% trans "Create an account" %}</h1>
+    <p class="text-center text-gray-500 mb-6">{% trans "No phone verification is performed here; we simply record the number you type." %}</p>
+
+    <form method="POST" class="max-w-md mx-auto bg-white shadow-md rounded-lg p-6 space-y-4">
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+            <div class="p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+                {{ form.non_field_errors.0 }}
+            </div>
+        {% endif %}
+
+        <div>
+            <label for="{{ form.phone_number.id_for_label }}" class="block text-gray-700 font-medium mb-2">{{ form.phone_number.label }}</label>
+            {{ form.phone_number }}
+            {% if form.phone_number.help_text %}
+                <p class="text-gray-500 text-sm mt-1">{{ form.phone_number.help_text }}</p>
+            {% endif %}
+            {% if form.phone_number.errors %}
+                <p class="text-red-500 text-sm mt-1">{{ form.phone_number.errors.0 }}</p>
+            {% endif %}
+        </div>
+
+        <div>
+            <label for="{{ form.password1.id_for_label }}" class="block text-gray-700 font-medium mb-2">{{ form.password1.label }}</label>
+            {{ form.password1 }}
+            {% if form.password1.errors %}
+                <p class="text-red-500 text-sm mt-1">{{ form.password1.errors.0 }}</p>
+            {% endif %}
+        </div>
+
+        <div>
+            <label for="{{ form.password2.id_for_label }}" class="block text-gray-700 font-medium mb-2">{{ form.password2.label }}</label>
+            {{ form.password2 }}
+            {% if form.password2.errors %}
+                <p class="text-red-500 text-sm mt-1">{{ form.password2.errors.0 }}</p>
+            {% endif %}
+        </div>
+
+        <button type="submit" class="w-full bg-green-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-green-600 transition">{% trans "Create account" %}</button>
+
+        <p class="text-center text-sm text-gray-600">
+            {% trans "Already have an account?" %}
+            <a href="{% url 'login' %}" class="text-blue-600 hover:text-blue-800">{% trans "Sign in" %}</a>
+        </p>
+    </form>
+</div>
+{% endblock %}
