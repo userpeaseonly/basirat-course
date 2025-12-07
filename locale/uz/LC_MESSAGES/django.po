@@ -91,3 +91,108 @@ msgstr "Siz ushbu sahifaga kirish huquqiga ega emassiz. Faqat talabalar kirishi 
 
 msgid "You do not have permission to access this page. Only administrators may enter."
 msgstr "Siz ushbu sahifaga kirish huquqiga ega emassiz. Faqat administratorlar kirishi mumkin."
+
+msgid "Students and administrators"
+msgstr "Talabalar va administratorlar"
+
+msgid "Home"
+msgstr "Bosh sahifa"
+
+msgid "Courses"
+msgstr "Kurslar"
+
+msgid "Create account"
+msgstr "Hisob ochish"
+
+msgid "Logged in"
+msgstr "Tizimga kirdingiz"
+
+msgid "Explore available and upcoming learning paths created by the Basirat team."
+msgstr "Basirat jamoasi tomonidan yaratilgan mavjud va rejalashtirilgan o'quv yo'nalishlarini o'rganing."
+
+msgid "Course"
+msgstr "Kurs"
+
+msgid "View course"
+msgstr "Kursni ko'rish"
+
+msgid "Lessons"
+msgstr "Darslar"
+
+msgid "No summary yet."
+msgstr "Hozircha umumiy ma'lumot yo'q."
+
+msgid "Course catalogue is empty at the moment. Please check back later."
+msgstr "Hozircha kurs katalogi bo'sh. Iltimos, keyinroq qaytib keling."
+
+msgid "Enrolled"
+msgstr "Ro'yxatdan o'tgan"
+
+msgid "Enrollment pending"
+msgstr "Ro'yxatdan o'tish kutilyapti"
+
+msgid "Enrollment rejected"
+msgstr "Ro'yxatdan o'tish rad etildi"
+
+msgid "Request enrollment"
+msgstr "Ro'yxatdan o'tishni so'rang"
+
+msgid "Lesson"
+msgstr "Dars"
+
+msgid "Available"
+msgstr "Mavjud"
+
+msgid "Locked"
+msgstr "Yopiq"
+
+msgid "Open lesson"
+msgstr "Darsni ochish"
+
+msgid "Lessons are coming soon."
+msgstr "Darslar tez orada paydo bo'ladi."
+
+msgid "Details coming soon."
+msgstr "Ma'lumotlar tez orada paydo bo'ladi."
+
+msgid "Back to course"
+msgstr "Kursga qaytish"
+
+msgid "Learning resource"
+msgstr "O'quv materiali"
+
+msgid "Task"
+msgstr "Vazifa"
+
+msgid "Completed"
+msgstr "Bajarildi"
+
+msgid "Open resource"
+msgstr "Manbani ochish"
+
+msgid "Downloads and copy-pastes are disabled for protected materials."
+msgstr "Himoyalangan materiallar uchun yuklab olish va nusxa olish cheklanadi."
+
+msgid "Mark as completed"
+msgstr "Bajarilgan deb belgilash"
+
+msgid "No materials have been added yet."
+msgstr "Hali materiallar qo'shilmagan."
+
+msgid "Task questions must not include uploaded learning files."
+msgstr "Vazifa savollari yuklangan o'quv fayllarini o'z ichiga olmaydi."
+
+msgid "Task materials require a question type."
+msgstr "Vazifa materiallari uchun savol turi kerak."
+
+msgid "Task materials require a payload describing the question."
+msgstr "Vazifa materiallari savolni tavsiflovchi ma'lumotni talab qiladi."
+
+msgid "Learning materials should not define question metadata."
+msgstr "O'quv materiallari savol metama'lumotlarini belgilamasligi kerak."
+
+msgid "Learning materials must include text or an uploaded asset."
+msgstr "O'quv materiallarida matn yoki yuklangan fayl bo'lishi shart."
+
+msgid "Your browser does not support inline video playback."
+msgstr "Brauzeringiz ichki video ijrosini qo'llab-quvvatlamaydi."

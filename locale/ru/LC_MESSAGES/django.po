@@ -91,3 +91,108 @@ msgstr "У вас нет прав на доступ к этой странице
 
 msgid "You do not have permission to access this page. Only administrators may enter."
 msgstr "У вас нет прав на доступ к этой странице. Только администраторы могут заходить."
+
+msgid "Students and administrators"
+msgstr "Студенты и администраторы"
+
+msgid "Home"
+msgstr "Главная"
+
+msgid "Courses"
+msgstr "Курсы"
+
+msgid "Create account"
+msgstr "Создать аккаунт"
+
+msgid "Logged in"
+msgstr "В системе"
+
+msgid "Explore available and upcoming learning paths created by the Basirat team."
+msgstr "Изучите доступные и будущие образовательные траектории от команды Basirat."
+
+msgid "Course"
+msgstr "Курс"
+
+msgid "View course"
+msgstr "Открыть курс"
+
+msgid "Lessons"
+msgstr "Уроки"
+
+msgid "No summary yet."
+msgstr "Описание пока отсутствует."
+
+msgid "Course catalogue is empty at the moment. Please check back later."
+msgstr "В настоящее время каталог курсов пуст. Пожалуйста, загляните позже."
+
+msgid "Enrolled"
+msgstr "Записан"
+
+msgid "Enrollment pending"
+msgstr "Запрос на запись ожидает"
+
+msgid "Enrollment rejected"
+msgstr "Запись отклонена"
+
+msgid "Request enrollment"
+msgstr "Запросить запись"
+
+msgid "Lesson"
+msgstr "Урок"
+
+msgid "Available"
+msgstr "Доступно"
+
+msgid "Locked"
+msgstr "Закрыт"
+
+msgid "Open lesson"
+msgstr "Открыть урок"
+
+msgid "Lessons are coming soon."
+msgstr "Уроки появятся в ближайшее время."
+
+msgid "Details coming soon."
+msgstr "Подробности скоро появятся."
+
+msgid "Back to course"
+msgstr "Вернуться к курсу"
+
+msgid "Learning resource"
+msgstr "Учебный материал"
+
+msgid "Task"
+msgstr "Задание"
+
+msgid "Completed"
+msgstr "Выполнено"
+
+msgid "Open resource"
+msgstr "Открыть ресурс"
+
+msgid "Downloads and copy-pastes are disabled for protected materials."
+msgstr "Скачивание и копирование отключены для защищенных материалов."
+
+msgid "Mark as completed"
+msgstr "Отметить как выполненное"
+
+msgid "No materials have been added yet."
+msgstr "Материалы еще не добавлены."
+
+msgid "Task questions must not include uploaded learning files."
+msgstr "Вопросы заданий не должны содержать загруженные учебные файлы."
+
+msgid "Task materials require a question type."
+msgstr "Материалы заданий требуют указания типа вопроса."
+
+msgid "Task materials require a payload describing the question."
+msgstr "Материалы заданий требуют payload с описанием вопроса."
+
+msgid "Learning materials should not define question metadata."
+msgstr "Учебные материалы не должны содержать метаданные вопроса."
+
+msgid "Learning materials must include text or an uploaded asset."
+msgstr "Учебный материал должен включать текст или загруженный файл."
+
+msgid "Your browser does not support inline video playback."
+msgstr "Ваш браузер не поддерживает встроенное воспроизведение видео."

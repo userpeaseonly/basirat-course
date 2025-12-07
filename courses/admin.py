@@ -22,7 +22,7 @@ class MaterialInline(admin.StackedInline):
         'question_type',
         'question_payload',
         'content',
-        'resource_url',
+        'media_file',
         'is_protected',
         'order',
     )

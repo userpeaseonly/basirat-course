@@ -41,12 +41,10 @@
                             <span class="text-slate-700">{{ user.phone_number }}</span>
                             <span class="text-slate-500">{% trans "Logged in" %}</span>
                         </div>
-                        <a href="{% url 'course_list' %}" class="text-sm text-slate-600 hover:text-blue-600 transition">{% trans "Courses" %}</a>
                         <a href="{% url 'logout' %}" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-red-200 text-red-600 hover:border-red-300 hover:bg-red-50 transition">
                             {% trans "Logout" %}
                         </a>
                     {% else %}
-                        <a href="{% url 'course_list' %}" class="text-sm text-slate-600 hover:text-blue-600 transition">{% trans "Courses" %}</a>
                         <a href="{% url 'login' %}" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-200 text-blue-600 hover:border-blue-300 hover:bg-blue-50 transition">
                             {% trans "Login" %}
                         </a>

@@ -90,9 +90,14 @@ class Material(models.Model):
 		choices=MATERIAL_TYPE_CHOICES,
 		default=LEARNING,
 	)
-	content = models.TextField(blank=True, help_text=_('Body text, transcript or instructions'))
-	resource_url = models.URLField(blank=True, help_text=_('Optional embed URL (video, image, etc.)'))
-	is_protected = models.BooleanField(default=True, help_text=_('Controls UI hints that prevent download/copy requests.'))
+	content = models.TextField(blank=True, help_text=_('Body text, transcript, or instructions written by administrators.'))
+	media_file = models.FileField(
+		upload_to='materials/%Y/%m/%d',
+		blank=True,
+		null=True,
+		help_text=_('Upload videos, PDFs, images, or other assets that play inline.'),
+	)
+	is_protected = models.BooleanField(default=True, help_text=_('Controls UI hints that discourage downloads/copying.'))
 	question_type = models.CharField(max_length=24, choices=QUESTION_TYPE_CHOICES, blank=True)
 	question_payload = models.JSONField(
 		blank=True,
@@ -114,6 +119,8 @@ class Material(models.Model):
 	def clean(self):
 		errors = {}
 		if self.material_type == self.TASK:
+			if self.media_file:
+				errors['material_type'] = _('Task questions must not include uploaded learning files.')
 			if not self.question_type:
 				errors['question_type'] = _('Task materials require a question type.')
 			if not self.question_payload:
@@ -121,6 +128,8 @@ class Material(models.Model):
 		else:
 			if self.question_type or self.question_payload:
 				errors['material_type'] = _('Learning materials should not define question metadata.')
+			if not (self.content or self.media_file):
+				errors['content'] = _('Learning materials must include text or an uploaded asset.')
 		if errors:
 			raise ValidationError(errors)
 
