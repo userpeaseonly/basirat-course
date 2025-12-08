@@ -186,6 +186,101 @@ class Enrollment(models.Model):
 		return self.status == self.STATUS_ACCEPTED
 
 
+class TaskSubmission(models.Model):
+	STATUS_PENDING = 'pending'
+	STATUS_GRADED = 'graded'
+	STATUS_CHOICES = [
+		(STATUS_PENDING, _('Pending review')),
+		(STATUS_GRADED, _('Graded')),
+	]
+
+	material = models.ForeignKey(
+		Material,
+		on_delete=models.CASCADE,
+		related_name='submissions',
+		verbose_name=_('Material'),
+		limit_choices_to={'material_type': 'task'},
+	)
+	student = models.ForeignKey(
+		settings.AUTH_USER_MODEL,
+		on_delete=models.CASCADE,
+		related_name='task_submissions',
+		verbose_name=_('Student'),
+	)
+	answer_payload = models.JSONField(
+		help_text=_('Student answer data: single choice (string), multiple choice (array), free response (text).'),
+	)
+	status = models.CharField(max_length=20, choices=STATUS_CHOICES, default=STATUS_PENDING)
+	score = models.DecimalField(
+		max_digits=5,
+		decimal_places=2,
+		null=True,
+		blank=True,
+		help_text=_('Score percentage (0-100).'),
+	)
+	feedback = models.TextField(blank=True, help_text=_('Instructor feedback for the submission.'))
+	attempt_number = models.PositiveIntegerField(default=1, verbose_name=_('Attempt number'))
+	submitted_at = models.DateTimeField(auto_now_add=True)
+	graded_at = models.DateTimeField(null=True, blank=True)
+
+	class Meta:
+		ordering = ['-submitted_at']
+		verbose_name = _('task submission')
+		verbose_name_plural = _('task submissions')
+		indexes = [
+			models.Index(fields=['material', 'student', '-submitted_at']),
+		]
+
+	def __str__(self):
+		return f"{self.student} — {self.material.title} (Attempt {self.attempt_number})"
+
+	def auto_grade(self):
+		"""
+		Automatically grade single/multiple choice questions.
+		Returns True if graded, False if manual review required.
+		"""
+		if self.material.question_type == Material.FREE_RESPONSE:
+			return False
+
+		payload = self.material.question_payload
+		if not payload or 'correct_answer' not in payload:
+			return False
+
+		correct = payload['correct_answer']
+		answer = self.answer_payload.get('answer')
+
+		if self.material.question_type == Material.SINGLE_CHOICE:
+			self.score = 100 if answer == correct else 0
+		elif self.material.question_type == Material.MULTI_CHOICE:
+			if not isinstance(answer, list) or not isinstance(correct, list):
+				return False
+			answer_set = set(answer)
+			correct_set = set(correct)
+			if answer_set == correct_set:
+				self.score = 100
+			else:
+				self.score = 0
+
+		self.status = self.STATUS_GRADED
+		self.graded_at = timezone.now()
+		self.save(update_fields=['score', 'status', 'graded_at'])
+		return True
+
+	def is_passing(self):
+		"""Check if submission meets 90% passing threshold."""
+		return self.score is not None and self.score >= 90
+
+	@classmethod
+	def get_attempts_count(cls, material, student):
+		"""Count previous attempts for a material by student."""
+		return cls.objects.filter(material=material, student=student).count()
+
+	@classmethod
+	def can_submit(cls, material, student):
+		"""Check if student can submit (hasn't exceeded 3 attempts)."""
+		return cls.get_attempts_count(material, student) < 3
+
+
 class MaterialCompletion(models.Model):
 	material = models.ForeignKey(
 		Material,

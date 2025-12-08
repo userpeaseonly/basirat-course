@@ -28,6 +28,22 @@ Materials serve two distinct roles enforced in `Material.clean()`:
 - **Learning resources** (`material_type='learning'`): Require `content` or `media_file`, no question metadata
 - **Task questions** (`material_type='task'`): Require `question_type` + `question_payload`, no media files
 
+### Task Submission & Grading System
+- **TaskSubmission model**: Tracks student answers with auto-grading for choice questions
+- **Attempt limits**: Students get 3 attempts per task (enforced via `TaskSubmission.can_submit()`)
+- **Passing threshold**: 90% score required to complete material (`TaskSubmission.is_passing()`)
+- **Auto-grading**: Single/multiple choice questions graded automatically via `TaskSubmission.auto_grade()`
+- **Manual grading**: Free response tasks marked as "pending review" for instructor grading in admin
+- **Question payload schema**:
+  ```json
+  {
+    "question": "What is 2+2?",
+    "choices": ["3", "4", "5"],
+    "correct_answer": "4"  // or ["option1", "option2"] for multi-choice
+  }
+  ```
+- **MaterialCompletion**: Only created after passing score (90%+) on task submissions
+
 ### Internationalization (i18n)
 - **django-modeltranslation**: Enabled but `translation.py` is empty (configure per model as needed)
 - Language codes: `uz` (default), `en`, `ru` - set via `MODELTRANSLATION_DEFAULT_LANGUAGE`
@@ -109,6 +125,8 @@ python manage.py compilemessages
 3. **Enrollment status**: Students can only access lessons if `Enrollment.status == 'accepted'`
 4. **Phone number format**: Use international format `+998901234567` for Uzbek numbers
 5. **Settings module**: Never run Django commands without `--settings=application.settings.{local|production}`
+6. **Task attempts**: Students limited to 3 attempts per task - check `TaskSubmission.can_submit()` before showing submission form
+7. **MaterialCompletion for tasks**: Only create after passing score (90%+), not on simple view
 
 ## Code Style Patterns
 

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Submit Task" %} - {{ material.title }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'course_list' %}">{% trans "Courses" %}</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'course_detail' lesson.course.slug %}">{{ lesson.course.title }}</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'course_lesson' lesson.course.slug lesson.slug %}">{{ lesson.title }}</a></li>
+            <li class="breadcrumb-item active">{{ material.title }}</li>
+        </ol>
+    </nav>
+
+    <h1>{{ material.title }}</h1>
+    
+    <div class="alert alert-info">
+        {% trans "Attempts used" %}: {{ attempts_used }} / 3
+        {% if attempts_used > 0 %}
+        <br>{% trans "Attempts remaining" %}: {{ 3|add:attempts_used|add:"-"|add:attempts_used }}
+        {% endif %}
+    </div>
+
+    {% if material.content %}
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">{% trans "Instructions" %}</h5>
+            <div class="card-text">{{ material.content|linebreaks }}</div>
+        </div>
+    </div>
+    {% endif %}
+
+    <form method="post" class="card">
+        {% csrf_token %}
+        <div class="card-body">
+            <h5 class="card-title">{% trans "Your Answer" %}</h5>
+            
+            {% if form.errors %}
+            <div class="alert alert-danger">
+                {% for field, errors in form.errors.items %}
+                    {% for error in errors %}
+                        {{ error }}
+                    {% endfor %}
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            {% for field in form %}
+            <div class="mb-3">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.help_text %}
+                <small class="form-text text-muted">{{ field.help_text }}</small>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">{% trans "Submit Answer" %}</button>
+            <a href="{% url 'course_lesson' lesson.course.slug lesson.slug %}" class="btn btn-secondary">{% trans "Cancel" %}</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

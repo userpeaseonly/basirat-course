@@ -8,6 +8,7 @@ from .models import (
     Lesson,
     Material,
     MaterialCompletion,
+    TaskSubmission,
 )
 
 
@@ -96,3 +97,57 @@ class EnrollmentAdmin(admin.ModelAdmin):
 class MaterialCompletionAdmin(admin.ModelAdmin):
 	list_display = ('material', 'student', 'completed_at')
 	list_filter = ('material__lesson__course',)
+
+
+@admin.register(TaskSubmission)
+class TaskSubmissionAdmin(admin.ModelAdmin):
+	list_display = ('material', 'student', 'attempt_number', 'status', 'score', 'submitted_at', 'graded_at')
+	list_filter = ('status', 'material__lesson__course', 'material__question_type')
+	search_fields = ('student__phone_number', 'material__title')
+	readonly_fields = ('submitted_at', 'attempt_number', 'answer_payload')
+	fieldsets = (
+		(_('Submission Info'), {
+			'fields': ('material', 'student', 'attempt_number', 'submitted_at', 'answer_payload')
+		}),
+		(_('Grading'), {
+			'fields': ('status', 'score', 'feedback', 'graded_at')
+		}),
+	)
+	actions = ['mark_as_graded', 'mark_as_passing']
+
+	def mark_as_graded(self, request, queryset):
+		"""Mark selected submissions as graded (requires manual score entry)."""
+		pending = queryset.filter(status=TaskSubmission.STATUS_PENDING)
+		count = 0
+		for submission in pending:
+			if submission.score is not None:
+				submission.status = TaskSubmission.STATUS_GRADED
+				submission.graded_at = timezone.now()
+				submission.save(update_fields=['status', 'graded_at'])
+				
+				# Create completion if passing
+				if submission.is_passing():
+					MaterialCompletion.objects.get_or_create(
+						material=submission.material,
+						student=submission.student
+					)
+				count += 1
+		self.message_user(request, _('{count} submissions marked as graded').format(count=count))
+	mark_as_graded.short_description = _('Mark as graded (if score set)')
+
+	def mark_as_passing(self, request, queryset):
+		"""Mark selected submissions with 100% score and complete."""
+		updated = queryset.update(
+			status=TaskSubmission.STATUS_GRADED,
+			score=100,
+			graded_at=timezone.now(),
+		)
+		# Create completions for all passing submissions
+		for submission in queryset:
+			MaterialCompletion.objects.get_or_create(
+				material=submission.material,
+				student=submission.student
+			)
+		self.message_user(request, _('{count} submissions marked as passing').format(count=updated))
+	mark_as_passing.short_description = _('Mark as 100% passing')
+
