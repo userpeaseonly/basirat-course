@@ -27,6 +27,9 @@
                 <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
                     <a href="/" class="hover:text-blue-600 transition">{% trans "Home" %}</a>
                     <a href="{% url 'course_list' %}" class="hover:text-blue-600 transition">{% trans "Courses" %}</a>
+                    {% if user.is_authenticated and user.is_student %}
+                        <a href="{% url 'submission_history' %}" class="hover:text-blue-600 transition">{% trans "My Submissions" %}</a>
+                    {% endif %}
                     {% if user.is_authenticated %}
                         {% if user.is_student %}
                             <span class="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-xs font-semibold">{% trans "Student" %}</span>

@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
+from django.db.models import Prefetch
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import gettext as _
 
@@ -177,3 +178,65 @@ def submit_task(request, material_pk):
         'attempts_used': TaskSubmission.get_attempts_count(material, request.user),
     }
     return render(request, 'courses/submit_task.html', context)
+
+
+@login_required
+def submission_history(request):
+    """Display all task submissions by the current student."""
+    if not request.user.is_student:
+        raise PermissionDenied
+    
+    # Get all enrolled courses with their lessons and task materials
+    enrollments = Enrollment.objects.filter(
+        student=request.user,
+        status=Enrollment.STATUS_ACCEPTED
+    ).select_related('course').prefetch_related(
+        Prefetch(
+            'course__lessons',
+            queryset=Lesson.objects.prefetch_related(
+                Prefetch(
+                    'materials',
+                    queryset=Material.objects.filter(material_type='task').prefetch_related(
+                        Prefetch(
+                            'submissions',
+                            queryset=TaskSubmission.objects.filter(student=request.user).order_by('-submitted_at'),
+                            to_attr='student_submissions'
+                        )
+                    )
+                )
+            )
+        )
+    )
+    
+    # Build structured data for template
+    history_data = []
+    for enrollment in enrollments:
+        course_data = {
+            'course': enrollment.course,
+            'lessons': []
+        }
+        for lesson in enrollment.course.lessons.all():
+            task_materials = [m for m in lesson.materials.all() if m.material_type == 'task']
+            if task_materials:
+                lesson_data = {
+                    'lesson': lesson,
+                    'tasks': []
+                }
+                for material in task_materials:
+                    submissions = material.student_submissions if hasattr(material, 'student_submissions') else []
+                    if submissions:
+                        lesson_data['tasks'].append({
+                            'material': material,
+                            'submissions': submissions,
+                            'best_score': max(s.score for s in submissions if s.score is not None) if any(s.score is not None for s in submissions) else None,
+                            'total_attempts': len(submissions),
+                        })
+                if lesson_data['tasks']:
+                    course_data['lessons'].append(lesson_data)
+        if course_data['lessons']:
+            history_data.append(course_data)
+    
+    context = {
+        'history_data': history_data,
+    }
+    return render(request, 'courses/submission_history.html', context)

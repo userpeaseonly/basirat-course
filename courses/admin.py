@@ -133,10 +133,10 @@ class TaskSubmissionAdmin(admin.ModelAdmin):
 					)
 				count += 1
 		self.message_user(request, _('{count} submissions marked as graded').format(count=count))
-	mark_as_graded.short_description = _('Mark as graded (if score set)')
+	mark_as_graded.short_description = _('Mark as graded if score set')
 
 	def mark_as_passing(self, request, queryset):
-		"""Mark selected submissions with 100% score and complete."""
+		"""Mark selected submissions with 100 percent score and complete."""
 		updated = queryset.update(
 			status=TaskSubmission.STATUS_GRADED,
 			score=100,
@@ -149,5 +149,5 @@ class TaskSubmissionAdmin(admin.ModelAdmin):
 				student=submission.student
 			)
 		self.message_user(request, _('{count} submissions marked as passing').format(count=updated))
-	mark_as_passing.short_description = _('Mark as 100% passing')
+	mark_as_passing.short_description = _('Mark as 100 percent passing')
 

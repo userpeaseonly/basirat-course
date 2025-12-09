@@ -4,5 +4,6 @@ from .course import (
     course_list,
     enroll_course,
     lesson_detail,
+    submission_history,
     submit_task,
 )
