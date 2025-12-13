@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Basirat\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-09 14:27+0500\n"
+"POT-Creation-Date: 2025-12-13 18:07+0500\n"
 "PO-Revision-Date: 2025-11-30 00:00+0000\n"
 "Last-Translator: Basirat Team <support@basirat.local>\n"
 "Language-Team: Uzbek\n"
@@ -14,60 +14,186 @@ msgstr ""
 
 #: application/settings/defaults.py:140
 msgid "Uzbek"
-msgstr ""
+msgstr "O'zbekcha"
 
 #: application/settings/defaults.py:141
 msgid "English"
-msgstr ""
+msgstr "Inglizcha"
 
 #: application/settings/defaults.py:142
 msgid "Russian"
+msgstr "Ruscha"
+
+#: courses/admin.py:16
+#, fuzzy
+#| msgid "Administrator"
+msgid "Basirat LMS Administration"
+msgstr "Administrator"
+
+#: courses/admin.py:17
+#, fuzzy
+#| msgid "Home - Basirat"
+msgid "Basirat Admin"
+msgstr "Bosh sahifa - Basirat"
+
+#: courses/admin.py:18
+msgid "Learning Management System"
+msgstr "Ta'lim Boshqaruv Tizimi"
+
+#: courses/admin.py:76
+msgid "Course Information"
+msgstr "Kurs Ma'lumotlari"
+
+#: courses/admin.py:79 courses/admin.py:114 courses/admin.py:170
+msgid "Dates"
+msgstr "Sanalar"
+
+#: courses/admin.py:88 courses/templates/courses/progress_dashboard.html:120
+msgid "Lessons"
+msgstr "Darslar"
+
+#: courses/admin.py:93
+#, fuzzy
+#| msgid "Student"
+msgid "Students"
+msgstr "Talaba"
+
+#: courses/admin.py:111
+msgid "Lesson Information"
+msgstr "Dars Ma'lumotlari"
+
+#: courses/admin.py:123 courses/templates/courses/progress_dashboard.html:124
+msgid "Materials"
+msgstr "Materiallar"
+
+#: courses/admin.py:140
+#, fuzzy
+#| msgid "Mark as completed"
+msgid "Material Information"
+msgstr "Bajarilgan deb belgilash"
+
+#: courses/admin.py:143
+#, fuzzy
+#| msgid "Learning resource"
+msgid "Learning Content"
+msgstr "O'quv materiali"
+
+#: courses/admin.py:145
+msgid "For learning materials only. Leave empty for tasks."
+msgstr "Faqat o'quv materiallari uchun. Topshiriqlar uchun bo'sh qoldiring."
+
+#: courses/admin.py:147
+msgid "Task Content"
+msgstr "Topshiriq Materiali"
+
+#: courses/admin.py:149
+msgid "For task materials only. Leave empty for learning materials."
+msgstr "Faqat topshiriqlar uchun. O'quv materiallari uchun bo'sh qoldiring."
+
+#: courses/admin.py:167
+#, fuzzy
+#| msgid "Enrollment pending"
+msgid "Enrollment Details"
+msgstr "Ro'yxatdan o'tish kutilyapti"
+
+#: courses/admin.py:178 courses/admin.py:223 courses/admin.py:275
+msgid "(No name)"
 msgstr ""
 
-#: courses/admin.py:84
+#: courses/admin.py:179 courses/admin.py:224 courses/admin.py:276
+#, fuzzy
+#| msgid "Student"
+msgid "Student Name"
+msgstr "Talaba"
+
+#: courses/admin.py:184
+#, fuzzy
+#| msgid "Phone number"
+msgid "Phone Number"
+msgstr "Telefon raqami"
+
+#: courses/admin.py:195
 #, python-brace-format
 msgid "{count} enrollments accepted"
-msgstr ""
+msgstr "{count} ta ro'yxatdan o'tish qabul qilindi"
 
-#: courses/admin.py:85
+#: courses/admin.py:196
 msgid "Mark selected enrollments as accepted"
-msgstr ""
+msgstr "Tanlangan ro'yxatdan o'tishlarni qabul qilingan deb belgilash"
 
-#: courses/admin.py:92
+#: courses/admin.py:203
 #, fuzzy, python-brace-format
 #| msgid "Enrollment rejected"
 msgid "{count} enrollments rejected"
 msgstr "Ro'yxatdan o'tish rad etildi"
 
-#: courses/admin.py:93
+#: courses/admin.py:204
 #, fuzzy
 #| msgid "Enrollment rejected"
 msgid "Mark selected enrollments as rejected"
 msgstr "Ro'yxatdan o'tish rad etildi"
 
-#: courses/admin.py:109
-msgid "Submission Info"
+#: courses/admin.py:217
+#, fuzzy
+#| msgid "User Details"
+msgid "Completion Details"
+msgstr "Foydalanuvchi ma'lumotlari"
+
+#: courses/admin.py:229 courses/admin.py:281
+msgid "Phone"
+msgstr "Telefon"
+
+#: courses/admin.py:233 courses/templates/courses/lesson.html:30
+msgid "Lesson"
+msgstr "Dars"
+
+#: courses/admin.py:237 courses/models.py:35 courses/models.py:155
+msgid "Course"
+msgstr "Kurs"
+
+#: courses/admin.py:261
+#, fuzzy
+#| msgid "Submission Info"
+msgid "Submission Information"
 msgstr "Javob haqida"
 
-#: courses/admin.py:112
+#: courses/admin.py:264
+#, fuzzy
+#| msgid "Submit Answer"
+msgid "Student Answer"
+msgstr "Javobni yuborish"
+
+#: courses/admin.py:266
+msgid "The answer submitted by the student"
+msgstr "Talaba topshirgan javob"
+
+#: courses/admin.py:268
 msgid "Grading"
 msgstr "Baholash"
 
-#: courses/admin.py:135
+#: courses/admin.py:270
+msgid "Enter score (0-100) and feedback, then use actions to mark as graded"
+msgstr "Ball (0-100) va fikrni kiriting, so'ng baholangan deb belgilash uchun amallardan foydalaning"
+
+#: courses/admin.py:285
+msgid "Question Type"
+msgstr "Savol Turi"
+
+#: courses/admin.py:310
 #, python-brace-format
 msgid "{count} submissions marked as graded"
 msgstr "{count} ta javob baholandi deb belgilandi"
 
-#: courses/admin.py:136
+#: courses/admin.py:311
 msgid "Mark as graded if score set"
 msgstr "Ball qo'yilgan bo'lsa baholangan deb belgilash"
 
-#: courses/admin.py:151
+#: courses/admin.py:326
 #, python-brace-format
 msgid "{count} submissions marked as passing"
 msgstr "{count} ta javob o'tdi deb belgilandi"
 
-#: courses/admin.py:152
+#: courses/admin.py:327
 msgid "Mark as 100 percent passing"
 msgstr "100 foiz o'tgan deb belgilash"
 
@@ -77,7 +203,7 @@ msgstr ""
 
 #: courses/forms.py:34
 msgid "Select all that apply"
-msgstr ""
+msgstr "Mos keladiganlarning barchasini tanlang"
 
 #: courses/forms.py:40
 msgid "Your answer"
@@ -85,19 +211,19 @@ msgstr ""
 
 #: courses/models.py:9 courses/models.py:37
 msgid "Title"
-msgstr ""
+msgstr "Sarlavha"
 
 #: courses/models.py:10 courses/models.py:38
 msgid "Slug"
-msgstr ""
+msgstr "URL nomi"
 
 #: courses/models.py:11
 msgid "Summary"
-msgstr ""
+msgstr "Qisqacha"
 
 #: courses/models.py:12
 msgid "Is published"
-msgstr ""
+msgstr "Nashr qilingan"
 
 #: courses/models.py:18
 #, fuzzy
@@ -111,20 +237,15 @@ msgstr "Kurs"
 msgid "courses"
 msgstr "Kurslar"
 
-#: courses/models.py:35 courses/models.py:155
-#: courses/templates/courses/list.html:17
-msgid "Course"
-msgstr "Kurs"
-
 #: courses/models.py:39
 msgid "Description"
-msgstr ""
+msgstr "Tavsif"
 
 #: courses/models.py:40 courses/models.py:107
 #: venv/lib/python3.12/site-packages/django/forms/formsets.py:484
 #: venv/lib/python3.12/site-packages/django/forms/formsets.py:491
 msgid "Order"
-msgstr ""
+msgstr "Tartib"
 
 #: courses/models.py:47
 #, fuzzy
@@ -138,41 +259,41 @@ msgstr "Dars"
 msgid "lessons"
 msgstr "Darslar"
 
-#: courses/models.py:69 courses/templates/courses/lesson.html:21
+#: courses/models.py:69 courses/templates/courses/lesson.html:64
 msgid "Learning resource"
 msgstr "O'quv materiali"
 
 #: courses/models.py:70
 msgid "Task/assignment"
-msgstr ""
+msgstr "Topshiriq"
 
-#: courses/models.py:77 courses/templates/courses/lesson.html:24
+#: courses/models.py:77 courses/templates/courses/lesson.html:67
 msgid "Single choice"
-msgstr ""
+msgstr "Bitta tanlov"
 
-#: courses/models.py:78 courses/templates/courses/lesson.html:25
+#: courses/models.py:78 courses/templates/courses/lesson.html:68
 msgid "Multiple choice"
-msgstr ""
+msgstr "Ko'p tanlov"
 
-#: courses/models.py:79 courses/templates/courses/lesson.html:26
+#: courses/models.py:79 courses/templates/courses/lesson.html:69
 msgid "Free response"
-msgstr ""
+msgstr "Erkin javob"
 
 #: courses/models.py:93
 msgid "Body text, transcript, or instructions written by administrators."
-msgstr ""
+msgstr "Matn, transkript yoki administratorlar yozgan ko'rsatmalar."
 
 #: courses/models.py:98
 msgid "Upload videos, PDFs, images, or other assets that play inline."
-msgstr ""
+msgstr "Videolar, PDF-lar, rasmlar yoki boshqa fayllarni yuklang."
 
 #: courses/models.py:100
 msgid "Controls UI hints that discourage downloads/copying."
-msgstr ""
+msgstr "Yuklab olish/nusxalashni cheklaydigan UI ko'rsatmalarini boshqaradi."
 
 #: courses/models.py:105
 msgid "Structured payload for task questions (choices, answers, hints)."
-msgstr ""
+msgstr "Topshiriq savollari uchun tuzilgan ma'lumot (tanlovlar, javoblar, maslahatlar)."
 
 #: courses/models.py:113
 msgid "material"
@@ -180,7 +301,7 @@ msgstr ""
 
 #: courses/models.py:114
 msgid "materials"
-msgstr ""
+msgstr "materiallar"
 
 #: courses/models.py:123
 msgid "Task questions must not include uploaded learning files."
@@ -202,7 +323,7 @@ msgstr "O'quv materiallari savol metama'lumotlarini belgilamasligi kerak."
 msgid "Learning materials must include text or an uploaded asset."
 msgstr "O'quv materiallarida matn yoki yuklangan fayl bo'lishi shart."
 
-#: courses/models.py:146
+#: courses/models.py:146 users/templates/users/profile.html:158
 msgid "Pending"
 msgstr ""
 
@@ -215,7 +336,8 @@ msgid "Rejected"
 msgstr ""
 
 #: courses/models.py:161 courses/models.py:208 courses/models.py:295
-#: users/templates/base.html:35 users/templates/users/home.html:33
+#: users/templates/base.html:50 users/templates/base.html:115
+#: users/templates/users/home_old.html:33 users/templates/users/profile.html:36
 msgid "Student"
 msgstr "Talaba"
 
@@ -241,7 +363,7 @@ msgstr "Baholandi"
 
 #: courses/models.py:201 courses/models.py:289
 msgid "Material"
-msgstr ""
+msgstr "Material"
 
 #: courses/models.py:211
 msgid ""
@@ -281,78 +403,81 @@ msgstr "Bajarilgan deb belgilash"
 msgid "material completions"
 msgstr ""
 
-#: courses/templates/courses/detail.html:10
-msgid "Details coming soon."
-msgstr "Ma'lumotlar tez orada paydo bo'ladi."
-
-#: courses/templates/courses/detail.html:15
+#: courses/templates/courses/detail.html:22
 msgid "Enrolled"
 msgstr "Ro'yxatdan o'tgan"
 
-#: courses/templates/courses/detail.html:17
+#: courses/templates/courses/detail.html:29
 msgid "Enrollment pending"
 msgstr "Ro'yxatdan o'tish kutilyapti"
 
-#: courses/templates/courses/detail.html:19
+#: courses/templates/courses/detail.html:36
 msgid "Enrollment rejected"
 msgstr "Ro'yxatdan o'tish rad etildi"
 
-#: courses/templates/courses/detail.html:24
+#: courses/templates/courses/detail.html:46
 msgid "Request enrollment"
 msgstr "Ro'yxatdan o'tishni so'rang"
 
-#: courses/templates/courses/detail.html:35
-#: courses/templates/courses/lesson.html:10
-msgid "Lesson"
-msgstr "Dars"
+#: courses/templates/courses/detail.html:57
+#, fuzzy
+#| msgid "Courses"
+msgid "Course Lessons"
+msgstr "Kurslar"
 
-#: courses/templates/courses/detail.html:38
-#: courses/templates/courses/lesson.html:32
+#: courses/templates/courses/detail.html:83
+#: courses/templates/courses/lesson.html:80
+#: courses/templates/courses/progress_dashboard.html:48
+#: courses/templates/courses/progress_dashboard.html:93
 msgid "Completed"
 msgstr "Bajarildi"
 
-#: courses/templates/courses/detail.html:40
+#: courses/templates/courses/detail.html:90
 msgid "Available"
 msgstr "Mavjud"
 
-#: courses/templates/courses/detail.html:42
+#: courses/templates/courses/detail.html:97
 msgid "Locked"
 msgstr "Yopiq"
 
-#: courses/templates/courses/detail.html:45
-#: courses/templates/courses/lesson.html:10
-msgid "No description yet."
-msgstr ""
-
-#: courses/templates/courses/detail.html:47
+#: courses/templates/courses/detail.html:103
 msgid "Open lesson"
 msgstr "Darsni ochish"
 
-#: courses/templates/courses/detail.html:51
+#: courses/templates/courses/detail.html:119
 msgid "Lessons are coming soon."
 msgstr "Darslar tez orada paydo bo'ladi."
 
 #: courses/templates/courses/lesson.html:8
-msgid "Back to course"
-msgstr "Kursga qaytish"
+#: courses/templates/courses/submit_task.html:10 users/templates/base.html:41
+#: users/templates/base.html:100 users/templates/users/profile.html:8
+msgid "Home"
+msgstr "Bosh sahifa"
 
-#: courses/templates/courses/lesson.html:23
+#: courses/templates/courses/lesson.html:12
+#: courses/templates/courses/list.html:3 courses/templates/courses/list.html:8
+#: courses/templates/courses/submit_task.html:14 users/templates/base.html:42
+#: users/templates/base.html:101
+msgid "Courses"
+msgstr "Kurslar"
+
+#: courses/templates/courses/lesson.html:66
 msgid "Task"
 msgstr "Vazifa"
 
-#: courses/templates/courses/lesson.html:51
+#: courses/templates/courses/lesson.html:104
 msgid "Your browser does not support inline video playback."
 msgstr "Brauzeringiz ichki video ijrosini qo'llab-quvvatlamaydi."
 
-#: courses/templates/courses/lesson.html:57
+#: courses/templates/courses/lesson.html:115
 msgid "Downloads and copy-pastes are disabled for protected materials."
 msgstr "Himoyalangan materiallar uchun yuklab olish va nusxa olish cheklanadi."
 
-#: courses/templates/courses/lesson.html:66
+#: courses/templates/courses/lesson.html:129
 msgid "Latest Attempt"
 msgstr "So'nggi urinish"
 
-#: courses/templates/courses/lesson.html:69
+#: courses/templates/courses/lesson.html:137
 #: courses/templates/courses/submission_history.html:55
 #: courses/templates/courses/submission_history.html:96
 #, fuzzy
@@ -360,82 +485,240 @@ msgstr "So'nggi urinish"
 msgid "Passed"
 msgstr "Parol"
 
-#: courses/templates/courses/lesson.html:71
+#: courses/templates/courses/lesson.html:144
 #: courses/templates/courses/submission_history.html:62
 #: courses/templates/courses/submission_history.html:100
 msgid "Failed"
 msgstr "O'tmadi"
 
-#: courses/templates/courses/lesson.html:74
+#: courses/templates/courses/lesson.html:152
 #: courses/templates/courses/submission_history.html:105
 msgid "Pending Review"
 msgstr "Ko'rib chiqilmoqda"
 
-#: courses/templates/courses/lesson.html:78
+#: courses/templates/courses/lesson.html:158
 #: courses/templates/courses/submission_history.html:143
 msgid "Feedback"
 msgstr "Fikr-mulohaza"
 
-#: courses/templates/courses/lesson.html:87
+#: courses/templates/courses/lesson.html:172 users/templates/500.html:28
 msgid "Try Again"
 msgstr "Qayta urinib ko'ring"
 
-#: courses/templates/courses/lesson.html:89
-#: courses/templates/courses/submit_task.html:112
+#: courses/templates/courses/lesson.html:174
+#: courses/templates/courses/submit_task.html:179
 msgid "Submit Answer"
 msgstr "Javobni yuborish"
 
-#: courses/templates/courses/lesson.html:93
+#: courses/templates/courses/lesson.html:183
 msgid "All 3 attempts used. Contact instructor for help."
 msgstr ""
 "Barcha 3 urinish ishlatildi. Yordam uchun o'qituvchiga murojaat qiling."
 
-#: courses/templates/courses/lesson.html:102
+#: courses/templates/courses/lesson.html:184
+#, fuzzy
+#| msgid "You have used all 3 attempts for this task."
+msgid "You've reached the maximum number of attempts for this task."
+msgstr "Siz ushbu topshiriq uchun barcha 3 urinishni ishlatdingiz."
+
+#: courses/templates/courses/lesson.html:199
 msgid "Mark as completed"
 msgstr "Bajarilgan deb belgilash"
 
-#: courses/templates/courses/lesson.html:109
+#: courses/templates/courses/lesson.html:212
 msgid "No materials have been added yet."
 msgstr "Hali materiallar qo'shilmagan."
 
-#: courses/templates/courses/list.html:3 courses/templates/courses/list.html:7
-#: courses/templates/courses/submit_task.html:11 users/templates/base.html:29
-msgid "Courses"
-msgstr "Kurslar"
-
-#: courses/templates/courses/list.html:8
-msgid ""
-"Explore available and upcoming learning paths created by the Basirat team."
-msgstr ""
+#: courses/templates/courses/list.html:9
+#, fuzzy
+#| msgid ""
+#| "Explore available and upcoming learning paths created by the Basirat team."
+msgid "Explore available learning paths and start your journey"
+msgstr "Mavjud o'quv yo'nalishlarini o'rganing va sayohatingizni boshlang"
 "Basirat jamoasi tomonidan yaratilgan mavjud va rejalashtirilgan o'quv "
 "yo'nalishlarini o'rganing."
 
-#: courses/templates/courses/list.html:19
-msgid "No summary yet."
-msgstr "Hozircha umumiy ma'lumot yo'q."
+#: courses/templates/courses/list.html:22
+msgid "Search courses by name or description..."
+msgstr "Kurslarni nom yoki tavsif bo'yicha qidirish..."
 
-#: courses/templates/courses/list.html:21
-msgid "View course"
+#: courses/templates/courses/list.html:38
+msgid "Sort: A-Z"
+msgstr "Tartiblash: A-Z"
+
+#: courses/templates/courses/list.html:39
+msgid "Sort: Z-A"
+msgstr "Tartiblash: Z-A"
+
+#: courses/templates/courses/list.html:40
+#, fuzzy
+#| msgid "Courses"
+msgid "Sort: Most Lessons"
+msgstr "Kurslar"
+
+#: courses/templates/courses/list.html:49
+msgid "Search"
+msgstr "Qidirish"
+
+#: courses/templates/courses/list.html:55
+#: venv/lib/python3.12/site-packages/django/forms/widgets.py:461
+msgid "Clear"
+msgstr "Tozalash"
+
+#: courses/templates/courses/list.html:64
+#, python-format
+msgid "Found %(counter)s course matching \"%(search_query)s\""
+msgid_plural "Found %(counter)s courses matching \"%(search_query)s\""
+msgstr[0] ""
+msgstr[1] ""
+
+#: courses/templates/courses/list.html:81 users/templates/users/home.html:245
+#, fuzzy, python-format
+#| msgid "Latest Attempt"
+msgid "%(counter)s lesson"
+msgid_plural "%(counter)s lessons"
+msgstr[0] "So'nggi urinish"
+msgstr[1] "So'nggi urinish"
+
+#: courses/templates/courses/list.html:90
+msgid "No description available"
+msgstr "Tavsif mavjud emas"
+
+#: courses/templates/courses/list.html:94
+#: courses/templates/courses/progress_dashboard.html:169
+#: users/templates/users/home.html:111
+#, fuzzy
+#| msgid "View course"
+msgid "View Course"
 msgstr "Kursni ko'rish"
 
-#: courses/templates/courses/list.html:22
-msgid "Lessons"
+#: courses/templates/courses/list.html:111
+#, fuzzy
+#| msgid "Your Courses"
+msgid "No Courses Found"
+msgstr "Sizning kurslaringiz"
+
+#: courses/templates/courses/list.html:113
+#, fuzzy
+#| msgid "Available"
+msgid "No Courses Available"
+msgstr "Mavjud"
+
+#: courses/templates/courses/list.html:118
+msgid ""
+"No courses match your search. Try different keywords or clear the search."
+msgstr ""
+
+#: courses/templates/courses/list.html:120
+#, fuzzy
+#| msgid "Course catalogue is empty at the moment. Please check back later."
+msgid "Course catalog is empty at the moment. Please check back later."
+msgstr "Hozircha kurs katalogi bo'sh. Iltimos, keyinroq qaytib keling."
+
+#: courses/templates/courses/list.html:125
+#, fuzzy
+#| msgid "View course"
+msgid "View All Courses"
+msgstr "Kursni ko'rish"
+
+#: courses/templates/courses/progress_dashboard.html:4
+msgid "My Dashboard"
+msgstr ""
+
+#: courses/templates/courses/progress_dashboard.html:10
+#, fuzzy
+#| msgid "Learning resource"
+msgid "My Learning Dashboard"
+msgstr "O'quv materiali"
+
+#: courses/templates/courses/progress_dashboard.html:11
+msgid "Track your progress and continue learning"
+msgstr ""
+
+#: courses/templates/courses/progress_dashboard.html:20
+#, fuzzy
+#| msgid "Courses"
+msgid "Total Courses"
+msgstr "Kurslar"
+
+#: courses/templates/courses/progress_dashboard.html:34
+#: users/templates/users/home.html:62
+#, fuzzy
+#| msgid "Lessons"
+msgid "Total Lessons"
 msgstr "Darslar"
 
-#: courses/templates/courses/list.html:29
-msgid "Course catalogue is empty at the moment. Please check back later."
-msgstr "Hozircha kurs katalogi bo'sh. Iltimos, keyinroq qaytib keling."
+#: courses/templates/courses/progress_dashboard.html:62
+#: users/templates/users/profile.html:123
+msgid "Overall Progress"
+msgstr "Umumiy Jarayon"
+
+#: courses/templates/courses/progress_dashboard.html:105
+#, fuzzy
+#| msgid "Courses"
+msgid "Course Progress"
+msgstr "Kurslar"
+
+#: courses/templates/courses/progress_dashboard.html:112
+#, python-format
+msgid "%(completed)s of %(total)s lessons completed"
+msgstr ""
+
+#: courses/templates/courses/progress_dashboard.html:128
+#, fuzzy
+#| msgid "Task"
+msgid "Tasks"
+msgstr "Vazifa"
+
+#: courses/templates/courses/progress_dashboard.html:137
+#: users/templates/users/home.html:77
+msgid "Continue Learning"
+msgstr "O'qishni Davom Ettirish"
+
+#: courses/templates/courses/progress_dashboard.html:141
+#: users/templates/users/home.html:88
+#, fuzzy
+#| msgid "Lesson"
+msgid "Start Lesson"
+msgstr "Dars"
+
+#: courses/templates/courses/progress_dashboard.html:155
+#, fuzzy
+#| msgid "Completed"
+msgid "Course Completed!"
+msgstr "Bajarildi"
+
+#: courses/templates/courses/progress_dashboard.html:156
+msgid "Congratulations on finishing all lessons"
+msgstr ""
+
+#: courses/templates/courses/progress_dashboard.html:183
+#, fuzzy
+#| msgid "Browse Courses"
+msgid "No Enrolled Courses"
+msgstr "Kurslarni ko'rish"
+
+#: courses/templates/courses/progress_dashboard.html:184
+msgid ""
+"You haven't enrolled in any courses yet. Browse available courses and start "
+"your learning journey!"
+msgstr ""
+
+#: courses/templates/courses/progress_dashboard.html:189
+#: courses/templates/courses/submission_history.html:171
+#: users/templates/404.html:28 users/templates/users/home.html:129
+#: users/templates/users/profile.html:206
+msgid "Browse Courses"
+msgstr "Kurslarni ko'rish"
 
 #: courses/templates/courses/submission_history.html:4
 #: courses/templates/courses/submission_history.html:10
-#, fuzzy
-#| msgid "Submission Info"
 msgid "Submission History"
-msgstr "Javob haqida"
+msgstr "Topshiriqlar tarixi"
 
 #: courses/templates/courses/submission_history.html:11
 msgid "View all your task submissions, scores, and feedback"
-msgstr ""
+msgstr "Barcha topshiriqlaringiz, ballaringiz va fikr-mulohazalarni ko'ring"
 
 #: courses/templates/courses/submission_history.html:67
 #, fuzzy, python-format
@@ -452,106 +735,123 @@ msgid "Attempt"
 msgstr "Ishlatilgan urinishlar"
 
 #: courses/templates/courses/submission_history.html:120
-#, fuzzy
-#| msgid "Submit Answer"
+#: courses/templates/courses/submit_task.html:103
 msgid "Your Answer"
-msgstr "Javobni yuborish"
+msgstr "Sizning javobingiz"
 
 #: courses/templates/courses/submission_history.html:165
-#, fuzzy
-#| msgid "Submission Info"
 msgid "No Submissions Yet"
-msgstr "Javob haqida"
+msgstr "Hali topshiriqlar yo'q"
 
 #: courses/templates/courses/submission_history.html:166
 msgid ""
 "You haven't submitted any task answers yet. Start learning and complete "
 "tasks to see your submission history here."
 msgstr ""
-
-#: courses/templates/courses/submission_history.html:171
-#, fuzzy
-#| msgid "Courses"
-msgid "Browse Courses"
-msgstr "Kurslar"
+"Siz hali hech qanday topshiriq javoblarini yubormagansiz. O'rganishni "
+"boshlang va topshiriqlarni bajarib, bu yerda topshiriqlar tarixini ko'ring."
 
 #: courses/templates/courses/submit_task.html:4
+#: courses/templates/courses/submit_task.html:26
 msgid "Submit Task"
 msgstr "Topshiriqni bajarish"
 
-#: courses/templates/courses/submit_task.html:25
+#: courses/templates/courses/submit_task.html:40
 msgid "Single choice question"
 msgstr "Bitta javobli savol"
 
-#: courses/templates/courses/submit_task.html:27
+#: courses/templates/courses/submit_task.html:42
 msgid "Multiple choice question"
 msgstr "Ko'p javobli savol"
 
-#: courses/templates/courses/submit_task.html:29
+#: courses/templates/courses/submit_task.html:44
 msgid "Free response question"
 msgstr "Erkin javobli savol"
 
-#: courses/templates/courses/submit_task.html:43
+#: courses/templates/courses/submit_task.html:61
 msgid "Attempts used"
 msgstr "Ishlatilgan urinishlar"
 
-#: courses/templates/courses/submit_task.html:46
-msgid "Attempts remaining"
+#: courses/templates/courses/submit_task.html:65
+msgid "This is your first attempt"
+msgstr ""
+
+#: courses/templates/courses/submit_task.html:67
+msgid "You have"
+msgstr ""
+
+#: courses/templates/courses/submit_task.html:67
+#, fuzzy
+#| msgid "Attempts remaining"
+msgid "attempts remaining"
 msgstr "Qolgan urinishlar"
 
-#: courses/templates/courses/submit_task.html:54
+#: courses/templates/courses/submit_task.html:69
+msgid "This is your final attempt"
+msgstr ""
+
+#: courses/templates/courses/submit_task.html:89
 msgid "Instructions"
 msgstr "Ko'rsatmalar"
 
-#: courses/templates/courses/submit_task.html:98
+#: courses/templates/courses/submit_task.html:116
+msgid "Please correct the following errors:"
+msgstr ""
+
+#: courses/templates/courses/submit_task.html:159
 msgid "Type your answer here..."
 msgstr "Javobingizni shu yerga yozing..."
 
-#: courses/templates/courses/submit_task.html:115
-msgid "Cancel"
+#: courses/templates/courses/submit_task.html:160
+msgid "Write a detailed answer. This will be reviewed by an instructor."
 msgstr ""
 
-#: courses/views/course.py:53
+#: courses/templates/courses/submit_task.html:185
+#: users/templates/users/profile.html:68
+msgid "Cancel"
+msgstr "Bekor Qilish"
+
+#: courses/views/course.py:76
 msgid "Your enrollment request is already pending or accepted."
 msgstr ""
 
-#: courses/views/course.py:55
+#: courses/views/course.py:78
 #, fuzzy
 #| msgid "Enrollment rejected"
 msgid "Enrollment request submitted."
 msgstr "Ro'yxatdan o'tish rad etildi"
 
-#: courses/views/course.py:69
+#: courses/views/course.py:92
 msgid "Complete the previous lessons before continuing."
 msgstr ""
 
-#: courses/views/course.py:119
+#: courses/views/course.py:142
 #, fuzzy
 #| msgid "Task materials require a question type."
 msgid "Task materials require submission, not simple completion."
 msgstr "Vazifa materiallari uchun savol turi kerak."
 
-#: courses/views/course.py:123
+#: courses/views/course.py:146
 #, fuzzy
 #| msgid "Mark as completed"
 msgid "Material marked as complete."
 msgstr "Bajarilgan deb belgilash"
 
-#: courses/views/course.py:143
+#: courses/views/course.py:166
 msgid "You have used all 3 attempts for this task."
 msgstr "Siz ushbu topshiriq uchun barcha 3 urinishni ishlatdingiz."
 
-#: courses/views/course.py:161
+#: courses/views/course.py:184
 #, python-brace-format
 msgid "Correct! Score: {score}%. Material completed."
 msgstr "To'g'ri! Ball: {score}%. Material tugallandi."
 
-#: courses/views/course.py:163
+#: courses/views/course.py:186
 #, python-brace-format
 msgid "Incorrect. Score: {score}%. You have {remaining} attempts remaining."
 msgstr "Noto'g'ri. Ball: {score}%. Sizda {remaining} ta urinish qoldi."
 
-#: courses/views/course.py:168
+#: courses/views/course.py:191
 msgid "Your answer has been submitted for review."
 msgstr "Javobingiz ko'rib chiqish uchun yuborildi."
 
@@ -614,49 +914,89 @@ msgstr ""
 msgid "Agar foydalanuvchi talaba bo'lsa, belgilang"
 msgstr ""
 
+#: users/templates/404.html:3 users/templates/404.html:13
+msgid "Page Not Found"
+msgstr "Sahifa Topilmadi"
+
+#: users/templates/404.html:15
+msgid ""
+"Sorry, we couldn't find the page you're looking for. It might have been "
+"moved, deleted, or the URL might be incorrect."
+msgstr ""
+
+#: users/templates/404.html:22 users/templates/500.html:22
+#, fuzzy
+#| msgid "Home"
+msgid "Go Home"
+msgstr "Bosh sahifa"
+
+#: users/templates/500.html:3
+msgid "Server Error"
+msgstr ""
+
+#: users/templates/500.html:13
+msgid "Internal Server Error"
+msgstr "Ichki Server Xatosi"
+
+#: users/templates/500.html:15
+msgid ""
+"Something went wrong on our end. We're working to fix it. Please try again "
+"later or contact support if the problem persists."
+msgstr ""
+
 #: users/templates/base.html:7
 #, fuzzy
 #| msgid "Home - Basirat"
 msgid "Basirat"
 msgstr "Bosh sahifa - Basirat"
 
-#: users/templates/base.html:24
+#: users/templates/base.html:35
 msgid "Students and administrators"
 msgstr "Talabalar va administratorlar"
 
-#: users/templates/base.html:28
-msgid "Home"
-msgstr "Bosh sahifa"
+#: users/templates/base.html:44 users/templates/base.html:103
+#: users/templates/users/home.html:23 users/templates/users/profile.html:182
+msgid "Dashboard"
+msgstr "Boshqaruv Paneli"
 
-#: users/templates/base.html:31
+#: users/templates/base.html:45 users/templates/base.html:104
+#: users/templates/users/profile.html:194
 #, fuzzy
 #| msgid "task submissions"
 msgid "My Submissions"
-msgstr "topshiriq javoblari"
+msgstr "Mening Topshiriqlarim"
 
-#: users/templates/base.html:37 users/templates/users/home.html:35
+#: users/templates/base.html:48 users/templates/base.html:107
+#: users/templates/users/profile.html:3 users/templates/users/profile.html:12
+msgid "Profile"
+msgstr "Profil"
+
+#: users/templates/base.html:52 users/templates/base.html:117
+#: users/templates/users/home_old.html:35
+#: users/templates/users/profile.html:234
 msgid "Administrator"
 msgstr "Administrator"
 
-#: users/templates/base.html:45
+#: users/templates/base.html:62
 msgid "Logged in"
 msgstr "Tizimga kirdingiz"
 
-#: users/templates/base.html:48
+#: users/templates/base.html:65 users/templates/base.html:122
 msgid "Logout"
 msgstr "Chiqish"
 
-#: users/templates/base.html:52 users/templates/users/login.html:3
-#: users/templates/users/login.html:6
+#: users/templates/base.html:69 users/templates/base.html:126
+#: users/templates/users/login.html:3 users/templates/users/login.html:6
 msgid "Login"
 msgstr "Kirish"
 
-#: users/templates/base.html:55 users/templates/users/create_account.html:3
+#: users/templates/base.html:72 users/templates/base.html:129
+#: users/templates/users/create_account.html:3
 #: users/templates/users/create_account.html:44
 msgid "Create account"
 msgstr "Hisob ochish"
 
-#: users/templates/base.html:81
+#: users/templates/base.html:156
 msgid "All rights reserved."
 msgstr "Barcha huquqlar himoyalangan."
 
@@ -683,44 +1023,139 @@ msgstr "Hisob ochish"
 msgid "Sign in"
 msgstr "Kirish"
 
-#: users/templates/users/home.html:3
+#: users/templates/users/home.html:3 users/templates/users/home_old.html:3
 msgid "Home - Basirat"
 msgstr "Bosh sahifa - Basirat"
 
-#: users/templates/users/home.html:10
+#: users/templates/users/home.html:14
+#, fuzzy, python-format
+#| msgid "Welcome, %(username)s!"
+msgid "Welcome back, %(name)s!"
+msgstr "Xush kelibsiz, %(username)s!"
+
+#: users/templates/users/home.html:16
+msgid "Continue your learning journey and achieve your goals"
+msgstr "O'qishni davom ettiring va maqsadlaringizga erishing"
+
+#: users/templates/users/home.html:34 users/templates/users/profile.html:79
+msgid "Enrolled Courses"
+msgstr "Yozilgan kurslar"
+
+#: users/templates/users/home.html:48 users/templates/users/profile.html:93
+msgid "Completed Lessons"
+msgstr "Tugatilgan darslar"
+
+#: users/templates/users/home.html:102
+msgid "Your Courses"
+msgstr "Sizning kurslaringiz"
+
+#: users/templates/users/home.html:103 users/templates/users/home.html:237
+msgid "View All"
+msgstr "Hammasini ko'rish"
+
+#: users/templates/users/home.html:123
+msgid "Start Your Learning Journey"
+msgstr "O'qishni boshlang"
+
+#: users/templates/users/home.html:124
+msgid ""
+"You haven't enrolled in any courses yet. Browse our catalog and start "
+"learning today!"
+msgstr ""
+"Siz hali hech qanday kursga yozilmadingiz. Katalogimizni ko'rib chiqing va "
+"bugun o'rganishni boshlang!"
+
+#: users/templates/users/home.html:142
+#, python-format
+msgid "Welcome, %(name)s"
+msgstr "Xush kelibsiz, %(name)s"
+
+#: users/templates/users/home.html:144
+msgid "Administrator Dashboard - Manage courses and enrollments"
+msgstr "Administrator paneli - Kurslar va ro'yxatlarni boshqarish"
+
+#: users/templates/users/home.html:152
+msgid "Admin Panel"
+msgstr "Admin Paneli"
+
+#: users/templates/users/home.html:163 users/templates/users/profile.html:244
+msgid "Published Courses"
+msgstr "Nashr etilgan kurslar"
+
+#: users/templates/users/home.html:177 users/templates/users/profile.html:272
+msgid "Pending Enrollments"
+msgstr "Kutilayotgan ro'yxatlar"
+
+#: users/templates/users/home.html:191 users/templates/users/profile.html:301
+msgid "Quick Actions"
+msgstr "Tezkor amallar"
+
+#: users/templates/users/home.html:200 users/templates/users/profile.html:311
+msgid "Manage Courses"
+msgstr "Kurslarni boshqarish"
+
+#: users/templates/users/home.html:201 users/templates/users/profile.html:312
+msgid "Add or edit courses"
+msgstr "Kurslarni qo'shish yoki tahrirlash"
+
+#: users/templates/users/home.html:212 users/templates/users/profile.html:323
+msgid "Review Enrollments"
+msgstr "Ro'yxatlarni ko'rib chiqish"
+
+#: users/templates/users/home.html:213 users/templates/users/profile.html:324
+msgid "Approve or reject requests"
+msgstr "So'rovlarni tasdiqlash yoki rad etish"
+
+#: users/templates/users/home.html:224 users/templates/users/profile.html:335
+msgid "Grade Submissions"
+msgstr "Javoblarni baholash"
+
+#: users/templates/users/home.html:225 users/templates/users/profile.html:336
+msgid "Review student work"
+msgstr "Talabalar ishlarini ko'rib chiqish"
+
+#: users/templates/users/home.html:236
+msgid "Featured Courses"
+msgstr "Tanlangan kurslar"
+
+#: users/templates/users/home.html:251
+msgid "Learn More"
+msgstr "Batafsil"
+
+#: users/templates/users/home_old.html:10
 #, python-format
 msgid "Welcome, %(username)s!"
 msgstr "Xush kelibsiz, %(username)s!"
 
-#: users/templates/users/home.html:14
+#: users/templates/users/home_old.html:14
 msgid "You are logged in as a student."
 msgstr "Siz talaba sifatida tizimga kirdingiz."
 
-#: users/templates/users/home.html:16
+#: users/templates/users/home_old.html:16
 msgid "You are logged in as an administrator."
 msgstr "Siz administrator sifatida tizimga kirdingiz."
 
-#: users/templates/users/home.html:23
+#: users/templates/users/home_old.html:23
 msgid "User Details"
 msgstr "Foydalanuvchi ma'lumotlari"
 
-#: users/templates/users/home.html:26
+#: users/templates/users/home_old.html:26
 msgid "Phone number:"
 msgstr "Telefon raqami:"
 
-#: users/templates/users/home.html:30
+#: users/templates/users/home_old.html:30
 msgid "Status:"
 msgstr "Holat:"
 
-#: users/templates/users/home.html:41
+#: users/templates/users/home_old.html:41
 msgid "Name:"
 msgstr "Ism:"
 
-#: users/templates/users/home.html:47
+#: users/templates/users/home_old.html:47
 msgid "Surname:"
 msgstr "Familiya:"
 
-#: users/templates/users/home.html:52
+#: users/templates/users/home_old.html:52
 msgid "Registered on:"
 msgstr "Ro'yxatdan o'tgan sana:"
 
@@ -739,6 +1174,90 @@ msgstr "Hisob ochish"
 #| msgid "Create account"
 msgid "Create one"
 msgstr "Hisob ochish"
+
+#: users/templates/users/profile.html:43
+msgid "Edit Profile"
+msgstr "Profilni Tahrirlash"
+
+#: users/templates/users/profile.html:50
+msgid "Update Your Information"
+msgstr ""
+
+#: users/templates/users/profile.html:55
+msgid "First Name"
+msgstr "Ism"
+
+#: users/templates/users/profile.html:59
+msgid "Last Name"
+msgstr "Familiya"
+
+#: users/templates/users/profile.html:65
+msgid "Save Changes"
+msgstr "O'zgarishlarni Saqlash"
+
+#: users/templates/users/profile.html:95
+msgid "of"
+msgstr "dan"
+
+#: users/templates/users/profile.html:108
+#, fuzzy
+#| msgid "task submissions"
+msgid "Task Submissions"
+msgstr "topshiriq javoblari"
+
+#: users/templates/users/profile.html:110
+#, fuzzy
+#| msgid "Password"
+msgid "passed"
+msgstr "Parol"
+
+#: users/templates/users/profile.html:140
+#, fuzzy
+#| msgid "task submissions"
+msgid "Recent Submissions"
+msgstr "topshiriq javoblari"
+
+#: users/templates/users/profile.html:164
+#, fuzzy
+#| msgid "No Submissions Yet"
+msgid "No submissions yet"
+msgstr "Hali topshiriqlar yo'q"
+
+#: users/templates/users/profile.html:172
+#, fuzzy
+#| msgid "Quick Actions"
+msgid "Quick Links"
+msgstr "Tezkor amallar"
+
+#: users/templates/users/profile.html:183
+msgid "View your learning progress"
+msgstr ""
+
+#: users/templates/users/profile.html:195
+#, fuzzy
+#| msgid "task submissions"
+msgid "Review all task submissions"
+msgstr "topshiriq javoblari"
+
+#: users/templates/users/profile.html:207
+msgid "Find new courses to enroll"
+msgstr ""
+
+#: users/templates/users/profile.html:258
+#, fuzzy
+#| msgid "Student"
+msgid "Total Students"
+msgstr "Talaba"
+
+#: users/templates/users/profile.html:286
+#, fuzzy
+#| msgid "Pending Review"
+msgid "Pending Reviews"
+msgstr "Ko'rib chiqilmoqda"
+
+#: users/views.py:124
+msgid "Profile updated successfully!"
+msgstr "Profil muvaffaqiyatli yangilandi!"
 
 #: venv/lib/python3.12/site-packages/django/contrib/messages/apps.py:16
 msgid "Messages"
@@ -1214,7 +1733,7 @@ msgstr ""
 
 #: venv/lib/python3.12/site-packages/django/forms/fields.py:95
 msgid "This field is required."
-msgstr ""
+msgstr "Bu maydon to'ldirilishi shart."
 
 #: venv/lib/python3.12/site-packages/django/forms/fields.py:308
 #, fuzzy
@@ -1376,10 +1895,6 @@ msgstr ""
 msgid ""
 "%(datetime)s couldn’t be interpreted in time zone %(current_timezone)s; it "
 "may be ambiguous or it may not exist."
-msgstr ""
-
-#: venv/lib/python3.12/site-packages/django/forms/widgets.py:461
-msgid "Clear"
 msgstr ""
 
 #: venv/lib/python3.12/site-packages/django/forms/widgets.py:462
@@ -2009,11 +2524,17 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#~ msgid "Quick Links"
-#~ msgstr "Tezkor havolalar"
+#~ msgid "Back to course"
+#~ msgstr "Kursga qaytish"
 
-#~ msgid "Admin Panel"
-#~ msgstr "Admin Paneli"
+#~ msgid "Details coming soon."
+#~ msgstr "Ma'lumotlar tez orada paydo bo'ladi."
+
+#~ msgid "No summary yet."
+#~ msgstr "Hozircha umumiy ma'lumot yo'q."
+
+#~ msgid "View course"
+#~ msgstr "Kursni ko'rish"
 
 #~ msgid "System Settings"
 #~ msgstr "Tizim sozlamalari"
@@ -2026,24 +2547,3 @@ msgstr ""
 
 #~ msgid "Open resource"
 #~ msgstr "Manbani ochish"
-
-msgid "Submission History"
-msgstr "Topshiriqlar tarixi"
-
-msgid "View all your task submissions, scores, and feedback"
-msgstr "Barcha topshiriqlaringiz, ballaringiz va fikr-mulohazalarni ko'ring"
-
-msgid "My Submissions"
-msgstr "Mening topshiriqlarim"
-
-msgid "Your Answer"
-msgstr "Sizning javobingiz"
-
-msgid "No Submissions Yet"
-msgstr "Hali topshiriqlar yo'q"
-
-msgid "You haven't submitted any task answers yet. Start learning and complete tasks to see your submission history here."
-msgstr "Siz hali hech qanday topshiriq javoblarini yubormagansiz. O'rganishni boshlang va topshiriqlarni bajarib, bu yerda topshiriqlar tarixini ko'ring."
-
-msgid "Browse Courses"
-msgstr "Kurslarni ko'rish"

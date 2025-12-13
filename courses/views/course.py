@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
-from django.db.models import Prefetch
+from django.db.models import Prefetch, Q, Count
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import gettext as _
 
@@ -17,8 +17,31 @@ from ..models import (
 
 
 def course_list(request):
-    courses = Course.objects.filter(is_published=True).order_by('title').prefetch_related('lessons')
-    return render(request, 'courses/list.html', {'courses': courses})
+    courses = Course.objects.filter(is_published=True).prefetch_related('lessons')
+    
+    # Search functionality
+    search_query = request.GET.get('q', '').strip()
+    if search_query:
+        courses = courses.filter(
+            Q(title__icontains=search_query) | 
+            Q(summary__icontains=search_query)
+        )
+    
+    # Sort functionality
+    sort_by = request.GET.get('sort', 'title')
+    if sort_by == 'lessons':
+        courses = courses.annotate(lesson_count=Count('lessons')).order_by('-lesson_count')
+    elif sort_by == 'title':
+        courses = courses.order_by('title')
+    elif sort_by == '-title':
+        courses = courses.order_by('-title')
+    
+    context = {
+        'courses': courses,
+        'search_query': search_query,
+        'sort_by': sort_by,
+    }
+    return render(request, 'courses/list.html', context)
 
 
 def course_detail(request, course_slug):
@@ -240,3 +263,68 @@ def submission_history(request):
         'history_data': history_data,
     }
     return render(request, 'courses/submission_history.html', context)
+
+
+@login_required
+def progress_dashboard(request):
+    """Display student's progress dashboard with all enrolled courses and statistics."""
+    if not request.user.is_student:
+        raise PermissionDenied
+    
+    # Get all enrollments with course and lesson data
+    enrollments = Enrollment.objects.filter(
+        student=request.user,
+        status=Enrollment.STATUS_ACCEPTED
+    ).select_related('course').prefetch_related('course__lessons__materials')
+    
+    # Build dashboard data
+    dashboard_data = []
+    total_lessons = 0
+    completed_lessons = 0
+    
+    for enrollment in enrollments:
+        course = enrollment.course
+        lessons = list(course.lessons.all())
+        total_lessons += len(lessons)
+        
+        # Calculate course statistics
+        course_completed = 0
+        next_lesson = None
+        
+        for lesson in lessons:
+            if lesson.completed_for(request.user):
+                course_completed += 1
+                completed_lessons += 1
+            elif next_lesson is None and lesson.is_available_for(request.user):
+                next_lesson = lesson
+        
+        # Calculate progress percentage
+        progress_percentage = round((course_completed / len(lessons) * 100)) if lessons else 0
+        
+        # Count materials
+        total_materials = sum(material.material_type == 'learning' for lesson in lessons for material in lesson.materials.all())
+        total_tasks = sum(material.material_type == 'task' for lesson in lessons for material in lesson.materials.all())
+        
+        dashboard_data.append({
+            'enrollment': enrollment,
+            'course': course,
+            'total_lessons': len(lessons),
+            'completed_lessons': course_completed,
+            'progress_percentage': progress_percentage,
+            'next_lesson': next_lesson,
+            'total_materials': total_materials,
+            'total_tasks': total_tasks,
+            'is_completed': course_completed == len(lessons) and len(lessons) > 0,
+        })
+    
+    # Overall statistics
+    overall_progress = round((completed_lessons / total_lessons * 100)) if total_lessons else 0
+    
+    context = {
+        'dashboard_data': dashboard_data,
+        'total_courses': len(dashboard_data),
+        'total_lessons': total_lessons,
+        'completed_lessons': completed_lessons,
+        'overall_progress': overall_progress,
+    }
+    return render(request, 'courses/progress_dashboard.html', context)

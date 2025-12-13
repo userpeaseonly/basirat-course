@@ -2,59 +2,259 @@
 {% load i18n %}
 {% block title %}{% trans "Home - Basirat" %}{% endblock %}
 {% block content %}
-<div class="container mx-auto py-8 px-4">
-    <div class="max-w-4xl mx-auto">
-        <!-- Welcome Section -->
-        <div class="bg-white rounded-lg shadow-md p-8 mb-6">
-            <h1 class="text-4xl font-bold text-gray-800 mb-4">
-                {% blocktrans with username=user.first_name|default:user.phone_number %}Welcome, {{ username }}!{% endblocktrans %}
-            </h1>
-            <p class="text-gray-600 text-lg">
-                {% if user.is_student %}
-                    {% trans "You are logged in as a student." %}
-                {% else %}
-                    {% trans "You are logged in as an administrator." %}
-                {% endif %}
-            </p>
-        </div>
-
-        <!-- User Info Card -->
-        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4">{% trans "User Details" %}</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                    <p class="text-gray-600 font-medium">{% trans "Phone number:" %}</p>
-                    <p class="text-gray-800 text-lg">{{ user.phone_number }}</p>
+<div class="container mx-auto px-4 py-8 max-w-7xl">
+    {% if user.is_student %}
+        <!-- Student Home Page -->
+        
+        <!-- Hero Section -->
+        <div class="bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg shadow-lg p-8 text-white mb-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex-1">
+                    <h1 class="text-3xl font-bold mb-2">
+                        {% blocktrans with name=user.first_name|default:user.phone_number %}Welcome back, {{ name }}!{% endblocktrans %}
+                    </h1>
+                    <p class="text-blue-100">{% trans "Continue your learning journey and achieve your goals" %}</p>
                 </div>
-                <div>
-                    <p class="text-gray-600 font-medium">{% trans "Status:" %}</p>
-                    <p class="text-gray-800 text-lg">
-                        {% if user.is_student %}
-                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">{% trans "Student" %}</span>
-                        {% else %}
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">{% trans "Administrator" %}</span>
-                        {% endif %}
-                    </p>
-                </div>
-                {% if user.first_name %}
-                <div>
-                    <p class="text-gray-600 font-medium">{% trans "Name:" %}</p>
-                    <p class="text-gray-800 text-lg">{{ user.first_name }}</p>
-                </div>
-                {% endif %}
-                {% if user.last_name %}
-                <div>
-                    <p class="text-gray-600 font-medium">{% trans "Surname:" %}</p>
-                    <p class="text-gray-800 text-lg">{{ user.last_name }}</p>
-                </div>
-                {% endif %}
-                <div>
-                    <p class="text-gray-600 font-medium">{% trans "Registered on:" %}</p>
-                    <p class="text-gray-800 text-lg">{{ user.date_joined|date:"d.m.Y H:i" }}</p>
+                <div class="flex gap-4">
+                    <a href="{% url 'progress_dashboard' %}" class="inline-flex items-center px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-blue-50 transition-colors">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                        {% trans "Dashboard" %}
+                    </a>
                 </div>
             </div>
         </div>
 
-    </div>
+        <!-- Quick Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600">{% trans "Enrolled Courses" %}</p>
+                        <p class="text-3xl font-bold text-blue-600 mt-1">{{ total_courses }}</p>
+                    </div>
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600">{% trans "Completed Lessons" %}</p>
+                        <p class="text-3xl font-bold text-green-600 mt-1">{{ total_completed }}</p>
+                    </div>
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600">{% trans "Total Lessons" %}</p>
+                        <p class="text-3xl font-bold text-purple-600 mt-1">{{ total_lessons }}</p>
+                    </div>
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Continue Learning Section -->
+        {% if next_lesson %}
+            <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">{% trans "Continue Learning" %}</h2>
+                <div class="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
+                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                        <div class="flex-1">
+                            <p class="text-sm font-semibold text-blue-600 uppercase mb-1">{{ next_course.title }}</p>
+                            <h3 class="text-lg font-bold text-gray-900 mb-1">{{ next_lesson.title }}</h3>
+                            {% if next_lesson.description %}
+                                <p class="text-sm text-gray-600">{{ next_lesson.description }}</p>
+                            {% endif %}
+                        </div>
+                        <a href="{% url 'course_lesson' next_course.slug next_lesson.slug %}" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors whitespace-nowrap">
+                            {% trans "Start Lesson" %}
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        <!-- Recent Courses -->
+        {% if recent_enrollments %}
+            <div class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+                <div class="bg-gray-50 px-6 py-4 border-b border-gray-200 flex items-center justify-between">
+                    <h2 class="text-xl font-semibold text-gray-900">{% trans "Your Courses" %}</h2>
+                    <a href="{% url 'progress_dashboard' %}" class="text-sm text-blue-600 hover:text-blue-700 font-semibold">{% trans "View All" %}</a>
+                </div>
+                <div class="p-6 grid gap-4 md:grid-cols-3">
+                    {% for enrollment in recent_enrollments %}
+                        <div class="border border-gray-200 rounded-lg p-4 hover:border-blue-300 transition-colors">
+                            <h3 class="font-semibold text-gray-900 mb-2">{{ enrollment.course.title }}</h3>
+                            <p class="text-sm text-gray-600 mb-3 line-clamp-2">{{ enrollment.course.description|default:"-" }}</p>
+                            <a href="{% url 'course_detail' enrollment.course.slug %}" class="text-sm text-blue-600 hover:text-blue-700 font-semibold">
+                                {% trans "View Course" %} →
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% else %}
+            <!-- No Enrollments -->
+            <div class="bg-white rounded-lg shadow-md p-12 text-center mb-8">
+                <svg class="mx-auto h-24 w-24 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">{% trans "Start Your Learning Journey" %}</h3>
+                <p class="text-gray-600 mb-6">{% trans "You haven't enrolled in any courses yet. Browse our catalog and start learning today!" %}</p>
+                <a href="{% url 'course_list' %}" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                    {% trans "Browse Courses" %}
+                </a>
+            </div>
+        {% endif %}
+
+    {% else %}
+        <!-- Administrator Home Page -->
+        
+        <!-- Hero Section -->
+        <div class="bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg shadow-lg p-8 text-white mb-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex-1">
+                    <h1 class="text-3xl font-bold mb-2">
+                        {% blocktrans with name=user.first_name|default:user.phone_number %}Welcome, {{ name }}{% endblocktrans %}
+                    </h1>
+                    <p class="text-purple-100">{% trans "Administrator Dashboard - Manage courses and enrollments" %}</p>
+                </div>
+                <div class="flex gap-4">
+                    <a href="/admin/" class="inline-flex items-center px-6 py-3 bg-white text-purple-600 font-semibold rounded-lg hover:bg-purple-50 transition-colors">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        {% trans "Admin Panel" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600">{% trans "Published Courses" %}</p>
+                        <p class="text-3xl font-bold text-blue-600 mt-1">{{ total_courses }}</p>
+                    </div>
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600">{% trans "Pending Enrollments" %}</p>
+                        <p class="text-3xl font-bold text-yellow-600 mt-1">{{ pending_enrollments }}</p>
+                    </div>
+                    <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">{% trans "Quick Actions" %}</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <a href="/admin/courses/course/" class="flex items-center p-4 border-2 border-gray-200 rounded-lg hover:border-blue-300 transition-colors">
+                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-900">{% trans "Manage Courses" %}</p>
+                        <p class="text-xs text-gray-600">{% trans "Add or edit courses" %}</p>
+                    </div>
+                </a>
+
+                <a href="/admin/courses/enrollment/" class="flex items-center p-4 border-2 border-gray-200 rounded-lg hover:border-yellow-300 transition-colors">
+                    <div class="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center mr-3">
+                        <svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-900">{% trans "Review Enrollments" %}</p>
+                        <p class="text-xs text-gray-600">{% trans "Approve or reject requests" %}</p>
+                    </div>
+                </a>
+
+                <a href="/admin/courses/tasksubmission/" class="flex items-center p-4 border-2 border-gray-200 rounded-lg hover:border-green-300 transition-colors">
+                    <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                        <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-900">{% trans "Grade Submissions" %}</p>
+                        <p class="text-xs text-gray-600">{% trans "Review student work" %}</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    {% endif %}
+
+    <!-- Featured Courses Section (for all users) -->
+    {% if featured_courses %}
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="bg-gray-50 px-6 py-4 border-b border-gray-200 flex items-center justify-between">
+                <h2 class="text-xl font-semibold text-gray-900">{% trans "Featured Courses" %}</h2>
+                <a href="{% url 'course_list' %}" class="text-sm text-blue-600 hover:text-blue-700 font-semibold">{% trans "View All" %}</a>
+            </div>
+            <div class="p-6 grid gap-4 md:grid-cols-3">
+                {% for course in featured_courses %}
+                    <div class="border border-gray-200 rounded-lg overflow-hidden hover:border-blue-300 transition-colors">
+                        <div class="bg-gradient-to-r from-blue-500 to-blue-600 p-4 text-white">
+                            <h3 class="font-bold mb-1">{{ course.title }}</h3>
+                            <p class="text-xs text-blue-100">
+                                {% blocktrans count counter=course.lessons.count %}{{ counter }} lesson{% plural %}{{ counter }} lessons{% endblocktrans %}
+                            </p>
+                        </div>
+                        <div class="p-4">
+                            <p class="text-sm text-gray-600 mb-3 line-clamp-2">{{ course.description|default:"-" }}</p>
+                            <a href="{% url 'course_detail' course.slug %}" class="text-sm text-blue-600 hover:text-blue-700 font-semibold">
+                                {% trans "Learn More" %} →
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
 </div>
 {% endblock %}

@@ -2,55 +2,123 @@
 {% load i18n %}
 {% block title %}{{ course.title }}{% endblock %}
 {% block content %}
-<div class="container mx-auto py-10">
-    <div class="bg-white rounded-2xl shadow-xl border border-slate-100 p-8">
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <div>
-                <h1 class="text-3xl font-bold text-slate-900">{{ course.title }}</h1>
-                <p class="text-slate-500 mt-2">{{ course.summary|default:_('Details coming soon.') }}</p>
+<div class="container mx-auto px-4 py-8 max-w-7xl">
+    <!-- Course Header -->
+    <div class="bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg shadow-lg p-8 text-white mb-8">
+        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+            <div class="flex-1">
+                <h1 class="text-3xl font-bold mb-2">{{ course.title }}</h1>
+                {% if course.description %}
+                    <p class="text-blue-100">{{ course.description }}</p>
+                {% endif %}
             </div>
             <div class="flex flex-col gap-3 items-start md:items-end">
                 {% if enrollment %}
                     {% if enrollment.is_active %}
-                        <span class="px-4 py-1 rounded-full bg-emerald-100 text-emerald-700 text-sm font-semibold">{% trans "Enrolled" %}</span>
+                        <span class="inline-flex items-center px-4 py-2 rounded-full bg-green-400 text-white text-sm font-semibold">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            {% trans "Enrolled" %}
+                        </span>
                     {% elif enrollment.status == enrollment.STATUS_PENDING %}
-                        <span class="px-4 py-1 rounded-full bg-amber-100 text-amber-700 text-sm font-semibold">{% trans "Enrollment pending" %}</span>
+                        <span class="inline-flex items-center px-4 py-2 rounded-full bg-yellow-400 text-white text-sm font-semibold">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+                            </svg>
+                            {% trans "Enrollment pending" %}
+                        </span>
                     {% else %}
-                        <span class="px-4 py-1 rounded-full bg-rose-100 text-rose-700 text-sm font-semibold">{% trans "Enrollment rejected" %}</span>
+                        <span class="inline-flex items-center px-4 py-2 rounded-full bg-red-400 text-white text-sm font-semibold">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                            </svg>
+                            {% trans "Enrollment rejected" %}
+                        </span>
                     {% endif %}
                 {% else %}
                     <form method="post" action="{% url 'course_enroll' course.slug %}">
                         {% csrf_token %}
-                        <button type="submit" class="px-4 py-2 rounded-full bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition">{% trans "Request enrollment" %}</button>
+                        <button type="submit" class="inline-flex items-center px-6 py-3 rounded-lg bg-white text-blue-600 font-semibold hover:bg-blue-50 transition-colors shadow-md">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                            </svg>
+                            {% trans "Request enrollment" %}
+                        </button>
                     </form>
                 {% endif %}
             </div>
         </div>
-        <div class="mt-8 grid gap-4">
-            {% for entry in lesson_states %}
-                <article class="border rounded-2xl p-4 flex flex-col gap-2 bg-slate-50">
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <h2 class="text-xl font-semibold text-slate-900">{{ entry.lesson.title }}</h2>
-                            <p class="text-sm text-slate-500">{% trans "Lesson" %} {{ entry.lesson.order|add:1 }}</p>
-                        </div>
-                        {% if entry.completed %}
-                            <span class="text-xs font-semibold uppercase tracking-wide text-emerald-600">{% trans "Completed" %}</span>
-                        {% elif entry.available %}
-                            <span class="text-xs font-semibold uppercase tracking-wide text-blue-600">{% trans "Available" %}</span>
-                        {% else %}
-                            <span class="text-xs font-semibold uppercase tracking-wide text-slate-400">{% trans "Locked" %}</span>
-                        {% endif %}
-                    </div>
-                    <p class="text-sm text-slate-600">{{ entry.lesson.description|default:_('No description yet.') }}</p>
-                    {% if entry.available and enrollment and enrollment.is_active %}
-                        <a href="{% url 'course_lesson' course.slug entry.lesson.slug %}" class="text-blue-600 text-sm font-semibold hover:text-blue-800">{% trans "Open lesson" %}</a>
-                    {% endif %}
-                </article>
-            {% empty %}
-                <p class="text-sm text-slate-500">{% trans "Lessons are coming soon." %}</p>
-            {% endfor %}
+    </div>
+
+    <!-- Lessons List -->
+    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="bg-gray-50 px-6 py-4 border-b border-gray-200">
+            <h2 class="text-xl font-semibold text-gray-900">{% trans "Course Lessons" %}</h2>
         </div>
+        
+        {% if lesson_states %}
+            <div class="divide-y divide-gray-200">
+                {% for entry in lesson_states %}
+                    <article class="p-6 hover:bg-gray-50 transition-colors">
+                        <div class="flex items-start justify-between gap-4">
+                            <div class="flex-1">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 text-blue-800 font-semibold text-sm">
+                                        {{ entry.lesson.order|add:1 }}
+                                    </span>
+                                    <h3 class="text-lg font-semibold text-gray-900">{{ entry.lesson.title }}</h3>
+                                </div>
+                                {% if entry.lesson.description %}
+                                    <p class="text-sm text-gray-600 ml-11">{{ entry.lesson.description }}</p>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="flex flex-col items-end gap-2">
+                                {% if entry.completed %}
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+                                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                        </svg>
+                                        {% trans "Completed" %}
+                                    </span>
+                                {% elif entry.available %}
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">
+                                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
+                                        </svg>
+                                        {% trans "Available" %}
+                                    </span>
+                                {% else %}
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600">
+                                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+                                        </svg>
+                                        {% trans "Locked" %}
+                                    </span>
+                                {% endif %}
+                                
+                                {% if entry.available and enrollment and enrollment.is_active %}
+                                    <a href="{% url 'course_lesson' course.slug entry.lesson.slug %}" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors text-sm">
+                                        {% trans "Open lesson" %}
+                                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="p-12 text-center">
+                <svg class="mx-auto h-16 w-16 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                <p class="text-gray-600">{% trans "Lessons are coming soon." %}</p>
+            </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

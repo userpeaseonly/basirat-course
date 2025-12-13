@@ -10,27 +10,42 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+        
+        /* Mobile menu animations */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .mobile-menu.active {
+            max-height: 500px;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
     <nav class="bg-white/70 backdrop-blur border-b border-slate-200 shadow-lg sticky top-0 z-30">
         <div class="container mx-auto px-4 py-4">
-            <div class="flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
                 <div class="flex items-center gap-3">
-                    <div class="flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-500 text-white text-xl font-semibold">B</div>
+                    <div class="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-500 text-white text-lg sm:text-xl font-semibold">B</div>
                     <div>
-                        <a href="/" class="text-xl font-bold text-slate-900 hover:text-blue-600">Basirat</a>
-                        <p class="text-xs uppercase tracking-wide text-slate-500">{% trans "Students and administrators" %}</p>
+                        <a href="/" class="text-lg sm:text-xl font-bold text-slate-900 hover:text-blue-600">Basirat</a>
+                        <p class="hidden sm:block text-xs uppercase tracking-wide text-slate-500">{% trans "Students and administrators" %}</p>
                     </div>
                 </div>
-                <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
-                    <a href="/" class="hover:text-blue-600 transition">{% trans "Home" %}</a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-600">
+                    <a href="{% url 'home' %}" class="hover:text-blue-600 transition">{% trans "Home" %}</a>
                     <a href="{% url 'course_list' %}" class="hover:text-blue-600 transition">{% trans "Courses" %}</a>
                     {% if user.is_authenticated and user.is_student %}
+                        <a href="{% url 'progress_dashboard' %}" class="hover:text-blue-600 transition">{% trans "Dashboard" %}</a>
                         <a href="{% url 'submission_history' %}" class="hover:text-blue-600 transition">{% trans "My Submissions" %}</a>
                     {% endif %}
                     {% if user.is_authenticated %}
+                        <a href="{% url 'profile' %}" class="hover:text-blue-600 transition">{% trans "Profile" %}</a>
                         {% if user.is_student %}
                             <span class="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-xs font-semibold">{% trans "Student" %}</span>
                         {% else %}
@@ -38,11 +53,13 @@
                         {% endif %}
                     {% endif %}
                 </div>
-                <div class="flex flex-wrap items-center gap-3">
+
+                <!-- Desktop Actions -->
+                <div class="hidden lg:flex items-center gap-3">
                     {% if user.is_authenticated %}
                         <div class="flex flex-col text-right text-sm">
                             <span class="text-slate-700">{{ user.phone_number }}</span>
-                            <span class="text-slate-500">{% trans "Logged in" %}</span>
+                            <span class="text-slate-500 text-xs">{% trans "Logged in" %}</span>
                         </div>
                         <a href="{% url 'logout' %}" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-red-200 text-red-600 hover:border-red-300 hover:bg-red-50 transition">
                             {% trans "Logout" %}
@@ -55,9 +72,67 @@
                             {% trans "Create account" %}
                         </a>
                     {% endif %}
-                    <form action="{% url 'set_language' %}" method="post" class="flex items-center space-x-2">
+                    <form action="{% url 'set_language' %}" method="post" class="flex items-center">
                         {% csrf_token %}
-                        <select id="language_select" name="language" class="border border-gray-300 rounded px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400" onchange="this.form.submit()">
+                        <select name="language" class="border border-gray-300 rounded px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400" onchange="this.form.submit()">
+                            {% for code, name in LANGUAGES %}
+                                <option value="{{ code }}" {% if code == LANGUAGE_CODE %}selected{% endif %}>{{ name }}</option>
+                            {% endfor %}
+                        </select>
+                        <input type="hidden" name="next" value="{{ request.path }}">
+                    </form>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden p-2 text-gray-600 hover:text-blue-600 focus:outline-none" onclick="toggleMobileMenu()">
+                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu lg:hidden">
+                <div class="py-4 space-y-3 border-t border-gray-200 mt-4">
+                    <a href="{% url 'home' %}" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">{% trans "Home" %}</a>
+                    <a href="{% url 'course_list' %}" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">{% trans "Courses" %}</a>
+                    {% if user.is_authenticated and user.is_student %}
+                        <a href="{% url 'progress_dashboard' %}" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">{% trans "Dashboard" %}</a>
+                        <a href="{% url 'submission_history' %}" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">{% trans "My Submissions" %}</a>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'profile' %}" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition">{% trans "Profile" %}</a>
+                    {% endif %}
+                    
+                    {% if user.is_authenticated %}
+                        <div class="px-4 py-2 border-t border-gray-200 mt-2 pt-3">
+                            <p class="text-sm font-semibold text-gray-900">{{ user.phone_number }}</p>
+                            <p class="text-xs text-gray-500">
+                                {% if user.is_student %}
+                                    {% trans "Student" %}
+                                {% else %}
+                                    {% trans "Administrator" %}
+                                {% endif %}
+                            </p>
+                        </div>
+                        <a href="{% url 'logout' %}" class="block mx-4 px-4 py-2 text-center bg-red-50 text-red-600 hover:bg-red-100 rounded-lg transition font-semibold">
+                            {% trans "Logout" %}
+                        </a>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="block mx-4 px-4 py-2 text-center border-2 border-blue-200 text-blue-600 hover:bg-blue-50 rounded-lg transition font-semibold">
+                            {% trans "Login" %}
+                        </a>
+                        <a href="{% url 'register' %}" class="block mx-4 px-4 py-2 text-center bg-blue-600 text-white hover:bg-blue-700 rounded-lg transition font-semibold">
+                            {% trans "Create account" %}
+                        </a>
+                    {% endif %}
+                    
+                    <form action="{% url 'set_language' %}" method="post" class="px-4 pt-3">
+                        {% csrf_token %}
+                        <select name="language" class="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400" onchange="this.form.submit()">
                             {% for code, name in LANGUAGES %}
                                 <option value="{{ code }}" {% if code == LANGUAGE_CODE %}selected{% endif %}>{{ name }}</option>
                             {% endfor %}
@@ -81,5 +156,29 @@
             <p>&copy; 2025 Basirat. {% trans "All rights reserved." %}</p>
         </div>
     </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+            
+            mobileMenu.classList.toggle('active');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        }
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            
+            if (mobileMenu && menuBtn && !menuBtn.contains(event.target) && !mobileMenu.contains(event.target)) {
+                if (mobileMenu.classList.contains('active')) {
+                    toggleMobileMenu();
+                }
+            }
+        });
+    </script>
 </body>
 </html>

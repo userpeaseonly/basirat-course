@@ -4,114 +4,184 @@
 {% block title %}{% trans "Submit Task" %} - {{ material.title }}{% endblock %}
 
 {% block content %}
-<div class="container mx-auto py-10">
-    <div class="bg-white rounded-3xl shadow-xl border border-slate-100 p-8 space-y-6 max-w-3xl mx-auto">
-        <nav aria-label="breadcrumb" class="text-sm text-slate-500">
-            <ol class="flex flex-wrap items-center gap-2">
-                <li><a href="{% url 'course_list' %}" class="hover:text-blue-600">{% trans "Courses" %}</a></li>
-                <li>/</li>
-                <li><a href="{% url 'course_detail' lesson.course.slug %}" class="hover:text-blue-600">{{ lesson.course.title }}</a></li>
-                <li>/</li>
-                <li><a href="{% url 'course_lesson' lesson.course.slug lesson.slug %}" class="hover:text-blue-600">{{ lesson.title }}</a></li>
-                <li>/</li>
-                <li class="text-slate-700">{{ material.title }}</li>
-            </ol>
-        </nav>
+<div class="container mx-auto px-4 py-8 max-w-4xl">
+    <!-- Breadcrumb -->
+    <nav class="mb-6 flex items-center gap-2 text-sm text-gray-600">
+        <a href="{% url 'home' %}" class="hover:text-blue-600 transition">{% trans "Home" %}</a>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+        <a href="{% url 'course_list' %}" class="hover:text-blue-600 transition">{% trans "Courses" %}</a>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+        <a href="{% url 'course_detail' lesson.course.slug %}" class="hover:text-blue-600 transition">{{ lesson.course.title }}</a>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+        <a href="{% url 'course_lesson' lesson.course.slug lesson.slug %}" class="hover:text-blue-600 transition">{{ lesson.title }}</a>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+        <span class="text-gray-900 font-semibold">{% trans "Submit Task" %}</span>
+    </nav>
 
-        <div>
-            <h1 class="text-3xl font-bold text-slate-900">{{ material.title }}</h1>
-            <p class="text-sm text-slate-500 mt-2">
-                {% if material.question_type == 'single_choice' %}
-                    {% trans "Single choice question" %}
-                {% elif material.question_type == 'multiple_choice' %}
-                    {% trans "Multiple choice question" %}
-                {% elif material.question_type == 'free_response' %}
-                    {% trans "Free response question" %}
-                {% endif %}
-            </p>
-        </div>
-        
-        <div class="bg-blue-50 border border-blue-200 rounded-2xl p-4">
-            <div class="flex items-center gap-3">
-                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
-                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                </div>
-                <div class="flex-1">
-                    <p class="text-sm font-semibold text-blue-900">
-                        {% trans "Attempts used" %}: <span class="font-bold">{{ attempts_used }} / 3</span>
-                    </p>
-                    {% if attempts_used > 0 %}
-                    <p class="text-xs text-blue-700">{% trans "Attempts remaining" %}: {{ 3|add:"-"|add:attempts_used }}</p>
+    <!-- Header Card -->
+    <div class="bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg shadow-lg p-8 text-white mb-6">
+        <div class="flex items-center gap-3 mb-3">
+            <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+            </div>
+            <div>
+                <p class="text-purple-100 text-sm font-semibold">
+                    {% if material.question_type == 'single_choice' %}
+                        {% trans "Single choice question" %}
+                    {% elif material.question_type == 'multiple_choice' %}
+                        {% trans "Multiple choice question" %}
+                    {% elif material.question_type == 'free_response' %}
+                        {% trans "Free response question" %}
                     {% endif %}
-                </div>
+                </p>
             </div>
         </div>
+        <h1 class="text-3xl font-bold">{{ material.title }}</h1>
+    </div>
 
-        {% if material.content %}
-        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
-            <h5 class="text-lg font-semibold text-slate-900 mb-3">{% trans "Instructions" %}</h5>
-            <div class="text-slate-700 whitespace-pre-line">{{ material.content }}</div>
+    <!-- Attempts Info -->
+    <div class="bg-white rounded-lg shadow-md border border-gray-200 p-6 mb-6">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center">
+                    <span class="text-2xl font-bold text-blue-600">{{ attempts_used }}</span>
+                </div>
+                <div>
+                    <p class="text-lg font-semibold text-gray-900">
+                        {% trans "Attempts used" %}: {{ attempts_used }} / 3
+                    </p>
+                    <p class="text-sm text-gray-600">
+                        {% if attempts_used == 0 %}
+                            {% trans "This is your first attempt" %}
+                        {% elif attempts_used < 3 %}
+                            {% trans "You have" %} {{ 3|add:attempts_used|add:"-6" }} {% trans "attempts remaining" %}
+                        {% else %}
+                            {% trans "This is your final attempt" %}
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+            <div class="flex gap-2">
+                {% for i in "123" %}
+                    <div class="w-3 h-3 rounded-full {% if forloop.counter0 < attempts_used %}bg-blue-600{% else %}bg-gray-300{% endif %}"></div>
+                {% endfor %}
+            </div>
         </div>
-        {% endif %}
+    </div>
 
-        <form method="post" class="space-y-6">
+    <!-- Instructions -->
+    {% if material.content %}
+    <div class="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden mb-6">
+        <div class="bg-gray-50 px-6 py-4 border-b border-gray-200 flex items-center gap-3">
+            <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h2 class="text-lg font-semibold text-gray-900">{% trans "Instructions" %}</h2>
+        </div>
+        <div class="p-6">
+            <div class="prose max-w-none text-gray-700 whitespace-pre-line">{{ material.content }}</div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Submission Form -->
+    <div class="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden">
+        <div class="bg-gray-50 px-6 py-4 border-b border-gray-200 flex items-center gap-3">
+            <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+            </svg>
+            <h2 class="text-lg font-semibold text-gray-900">{% trans "Your Answer" %}</h2>
+        </div>
+        
+        <form method="post" class="p-6">
             {% csrf_token %}
             
             {% if form.errors %}
-            <div class="bg-red-50 border border-red-200 rounded-2xl p-4">
+            <div class="bg-red-50 border-2 border-red-200 rounded-lg p-4 mb-6">
                 <div class="flex items-start gap-3">
-                    <div class="flex-shrink-0 w-5 h-5 text-red-600">
-                        <svg fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
-                        </svg>
-                    </div>
-                    <div class="text-sm text-red-800">
-                        {% for field, errors in form.errors.items %}
-                            {% for error in errors %}
-                                <p>{{ error }}</p>
+                    <svg class="w-5 h-5 text-red-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                    </svg>
+                    <div>
+                        <p class="font-semibold text-red-900 mb-1">{% trans "Please correct the following errors:" %}</p>
+                        <ul class="text-sm text-red-800 list-disc list-inside">
+                            {% for field, errors in form.errors.items %}
+                                {% for error in errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
                             {% endfor %}
-                        {% endfor %}
+                        </ul>
                     </div>
                 </div>
             </div>
             {% endif %}
 
-            <div class="space-y-4">
+            <div class="space-y-6">
                 {% for field in form %}
                 <div>
-                    <label class="block text-base font-semibold text-slate-900 mb-3">
+                    <label class="block text-base font-semibold text-gray-900 mb-4">
                         {{ field.label }}
                     </label>
                     
-                    {% if field.field.widget.input_type == 'radio' or field.field.widget.input_type == 'checkbox' %}
-                        <div class="space-y-2">
+                    {% if field.field.widget.input_type == 'radio' %}
+                        <div class="space-y-3">
                             {% for choice in field %}
-                            <label class="flex items-center gap-3 p-4 border-2 border-slate-200 rounded-xl hover:border-blue-300 hover:bg-blue-50 cursor-pointer transition">
-                                {{ choice.tag }}
-                                <span class="text-slate-700">{{ choice.choice_label }}</span>
+                            <label class="group flex items-start gap-4 p-4 border-2 border-gray-200 rounded-lg hover:border-purple-400 hover:bg-purple-50 cursor-pointer transition-all duration-200 has-[:checked]:border-purple-500 has-[:checked]:bg-purple-50 has-[:checked]:shadow-md">
+                                <div class="flex items-center h-6">
+                                    {{ choice.tag }}
+                                </div>
+                                <span class="flex-1 text-gray-700 group-hover:text-gray-900">{{ choice.choice_label }}</span>
+                            </label>
+                            {% endfor %}
+                        </div>
+                    {% elif field.field.widget.input_type == 'checkbox' %}
+                        <div class="space-y-3">
+                            {% for choice in field %}
+                            <label class="group flex items-start gap-4 p-4 border-2 border-gray-200 rounded-lg hover:border-purple-400 hover:bg-purple-50 cursor-pointer transition-all duration-200 has-[:checked]:border-purple-500 has-[:checked]:bg-purple-50 has-[:checked]:shadow-md">
+                                <div class="flex items-center h-6">
+                                    {{ choice.tag }}
+                                </div>
+                                <span class="flex-1 text-gray-700 group-hover:text-gray-900">{{ choice.choice_label }}</span>
                             </label>
                             {% endfor %}
                         </div>
                     {% elif field.field.widget.input_type == 'textarea' %}
-                        <textarea name="{{ field.name }}" rows="8" class="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition" placeholder="{% trans 'Type your answer here...' %}">{{ field.value|default:'' }}</textarea>
+                        <textarea name="{{ field.name }}" rows="10" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-purple-500 focus:ring-4 focus:ring-purple-100 outline-none transition-all resize-y" placeholder="{% trans 'Type your answer here...' %}">{{ field.value|default:'' }}</textarea>
+                        <p class="mt-2 text-sm text-gray-600">{% trans "Write a detailed answer. This will be reviewed by an instructor." %}</p>
+                    {% else %}
+                        {{ field }}
                     {% else %}
                         {{ field }}
                     {% endif %}
                     
                     {% if field.help_text %}
-                    <p class="mt-2 text-xs text-slate-500">{{ field.help_text }}</p>
+                    <p class="mt-2 text-sm text-gray-500">{{ field.help_text }}</p>
                     {% endif %}
                 </div>
                 {% endfor %}
             </div>
 
-            <div class="flex flex-wrap gap-3 pt-4 border-t border-slate-200">
-                <button type="submit" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition shadow-lg hover:shadow-xl">
+            <div class="flex flex-wrap gap-4 pt-6 border-t-2 border-gray-100">
+                <button type="submit" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-bold rounded-lg hover:from-purple-700 hover:to-purple-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
                     {% trans "Submit Answer" %}
                 </button>
-                <a href="{% url 'course_lesson' lesson.course.slug lesson.slug %}" class="px-6 py-3 bg-slate-100 text-slate-700 font-semibold rounded-full hover:bg-slate-200 transition">
+                <a href="{% url 'course_lesson' lesson.course.slug lesson.slug %}" class="inline-flex items-center gap-2 px-8 py-4 bg-gray-100 text-gray-700 font-semibold rounded-lg hover:bg-gray-200 transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
                     {% trans "Cancel" %}
                 </a>
             </div>
@@ -120,14 +190,22 @@
 </div>
 
 <style>
-    /* Hide default radio/checkbox */
+    /* Custom styling for radio and checkbox inputs */
     input[type="radio"],
     input[type="checkbox"] {
         width: 1.25rem;
         height: 1.25rem;
         flex-shrink: 0;
-        accent-color: #2563eb;
+        accent-color: #9333ea;
         cursor: pointer;
+    }
+    
+    /* Smooth transitions for interactive elements */
+    label:has(input[type="radio"]:checked),
+    label:has(input[type="checkbox"]:checked) {
+        border-color: #9333ea;
+        background-color: rgb(250 245 255);
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
     }
 </style>
 {% endblock %}
