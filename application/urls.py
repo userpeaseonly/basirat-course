@@ -6,9 +6,11 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include
 from django.urls import path
+from django.views.generic import RedirectView
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView, SpectacularRedocView
 
 urlpatterns = [
+    path('', RedirectView.as_view(pattern_name='course_list', permanent=False)),
     path('admin/', admin.site.urls),
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
