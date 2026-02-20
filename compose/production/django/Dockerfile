@@ -1,5 +1,5 @@
 # --- Stage 1: Build dependencies ---
-FROM python:3.10-slim-buster as builder
+FROM python:3.10-slim-bookworm AS builder
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
@@ -16,15 +16,12 @@ RUN python -m venv /opt/venv
 
 ENV PATH="/opt/venv/bin:$PATH"
 
-COPY ./requirements.txt ./requirements.txt
-
-
 # Install Python dependencies
 COPY requirements.txt /requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r /requirements.txt
 
 # --- Stage 2: Run application ---
-FROM python:3.10-slim-buster as application
+FROM python:3.10-slim-bookworm AS application
 
 WORKDIR /app
 
