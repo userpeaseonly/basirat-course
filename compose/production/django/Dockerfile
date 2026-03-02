@@ -27,6 +27,10 @@ WORKDIR /app
 
 ENV PATH="/opt/venv/bin:$PATH"
 
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  gettext \
+  && rm -rf /var/lib/apt/lists/*
+
 # Copy installed python dependencies
 COPY --from=builder /opt/venv /opt/venv
 
