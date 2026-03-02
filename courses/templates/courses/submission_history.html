@@ -83,7 +83,7 @@
                                                                 {% trans "Attempt" %} #{{ submission.attempt_number }}
                                                             </p>
                                                             <p class="text-xs text-gray-500">
-                                                                {{ submission.submitted_at|date:"F d, Y H:i" }}
+                                                                {{ submission.submitted_at|date:"SHORT_DATETIME_FORMAT" }}
                                                             </p>
                                                         </div>
                                                     </div>

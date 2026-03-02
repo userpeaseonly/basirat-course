@@ -25,13 +25,11 @@ msgid "Russian"
 msgstr "Ruscha"
 
 #: courses/admin.py:16
-#, fuzzy
 #| msgid "Administrator"
 msgid "Basirat LMS Administration"
 msgstr "Administrator"
 
 #: courses/admin.py:17
-#, fuzzy
 #| msgid "Home - Basirat"
 msgid "Basirat Admin"
 msgstr "Bosh sahifa - Basirat"
@@ -53,7 +51,6 @@ msgid "Lessons"
 msgstr "Darslar"
 
 #: courses/admin.py:93
-#, fuzzy
 #| msgid "Student"
 msgid "Students"
 msgstr "Talaba"
@@ -67,13 +64,11 @@ msgid "Materials"
 msgstr "Materiallar"
 
 #: courses/admin.py:140
-#, fuzzy
 #| msgid "Mark as completed"
 msgid "Material Information"
 msgstr "Bajarilgan deb belgilash"
 
 #: courses/admin.py:143
-#, fuzzy
 #| msgid "Learning resource"
 msgid "Learning Content"
 msgstr "O'quv materiali"
@@ -91,23 +86,20 @@ msgid "For task materials only. Leave empty for learning materials."
 msgstr "Faqat topshiriqlar uchun. O'quv materiallari uchun bo'sh qoldiring."
 
 #: courses/admin.py:167
-#, fuzzy
 #| msgid "Enrollment pending"
 msgid "Enrollment Details"
 msgstr "Ro'yxatdan o'tish kutilyapti"
 
 #: courses/admin.py:178 courses/admin.py:223 courses/admin.py:275
 msgid "(No name)"
-msgstr ""
+msgstr "(Nomsiz)"
 
 #: courses/admin.py:179 courses/admin.py:224 courses/admin.py:276
-#, fuzzy
 #| msgid "Student"
 msgid "Student Name"
 msgstr "Talaba"
 
 #: courses/admin.py:184
-#, fuzzy
 #| msgid "Phone number"
 msgid "Phone Number"
 msgstr "Telefon raqami"
@@ -122,19 +114,17 @@ msgid "Mark selected enrollments as accepted"
 msgstr "Tanlangan ro'yxatdan o'tishlarni qabul qilingan deb belgilash"
 
 #: courses/admin.py:203
-#, fuzzy, python-brace-format
+#, python-brace-format
 #| msgid "Enrollment rejected"
 msgid "{count} enrollments rejected"
-msgstr "Ro'yxatdan o'tish rad etildi"
+msgstr "{count} ta ro'yxatdan o'tish rad etildi"
 
 #: courses/admin.py:204
-#, fuzzy
 #| msgid "Enrollment rejected"
 msgid "Mark selected enrollments as rejected"
-msgstr "Ro'yxatdan o'tish rad etildi"
+msgstr "Tanlangan ro'yxatdan o'tishlarni rad etilgan deb belgilash"
 
 #: courses/admin.py:217
-#, fuzzy
 #| msgid "User Details"
 msgid "Completion Details"
 msgstr "Foydalanuvchi ma'lumotlari"
@@ -152,13 +142,11 @@ msgid "Course"
 msgstr "Kurs"
 
 #: courses/admin.py:261
-#, fuzzy
 #| msgid "Submission Info"
 msgid "Submission Information"
 msgstr "Javob haqida"
 
 #: courses/admin.py:264
-#, fuzzy
 #| msgid "Submit Answer"
 msgid "Student Answer"
 msgstr "Javobni yuborish"
@@ -199,7 +187,7 @@ msgstr "100 foiz o'tgan deb belgilash"
 
 #: courses/forms.py:27
 msgid "Select an answer"
-msgstr ""
+msgstr "Javobni tanlang"
 
 #: courses/forms.py:34
 msgid "Select all that apply"
@@ -207,7 +195,7 @@ msgstr "Mos keladiganlarning barchasini tanlang"
 
 #: courses/forms.py:40
 msgid "Your answer"
-msgstr ""
+msgstr "Sizning javobingiz"
 
 #: courses/models.py:9 courses/models.py:37
 msgid "Title"
@@ -226,13 +214,11 @@ msgid "Is published"
 msgstr "Nashr qilingan"
 
 #: courses/models.py:18
-#, fuzzy
 #| msgid "Course"
 msgid "course"
 msgstr "Kurs"
 
 #: courses/models.py:19
-#, fuzzy
 #| msgid "Courses"
 msgid "courses"
 msgstr "Kurslar"
@@ -248,13 +234,11 @@ msgid "Order"
 msgstr "Tartib"
 
 #: courses/models.py:47
-#, fuzzy
 #| msgid "Lesson"
 msgid "lesson"
 msgstr "Dars"
 
 #: courses/models.py:48
-#, fuzzy
 #| msgid "Lessons"
 msgid "lessons"
 msgstr "Darslar"
@@ -297,7 +281,7 @@ msgstr "Topshiriq savollari uchun tuzilgan ma'lumot (tanlovlar, javoblar, maslah
 
 #: courses/models.py:113
 msgid "material"
-msgstr ""
+msgstr "material"
 
 #: courses/models.py:114
 msgid "materials"
@@ -325,15 +309,15 @@ msgstr "O'quv materiallarida matn yoki yuklangan fayl bo'lishi shart."
 
 #: courses/models.py:146 users/templates/users/profile.html:158
 msgid "Pending"
-msgstr ""
+msgstr "Kutilmoqda"
 
 #: courses/models.py:147
 msgid "Accepted"
-msgstr ""
+msgstr "Qabul qilindi"
 
 #: courses/models.py:148
 msgid "Rejected"
-msgstr ""
+msgstr "Rad etildi"
 
 #: courses/models.py:161 courses/models.py:208 courses/models.py:295
 #: users/templates/base.html:50 users/templates/base.html:115
@@ -342,13 +326,11 @@ msgid "Student"
 msgstr "Talaba"
 
 #: courses/models.py:169
-#, fuzzy
 #| msgid "Request enrollment"
 msgid "enrollment"
 msgstr "Ro'yxatdan o'tishni so'rang"
 
 #: courses/models.py:170
-#, fuzzy
 #| msgid "Request enrollment"
 msgid "enrollments"
 msgstr "Ro'yxatdan o'tishni so'rang"
@@ -370,6 +352,8 @@ msgid ""
 "Student answer data: single choice (string), multiple choice (array), free "
 "response (text)."
 msgstr ""
+"Talaba javobi ma'lumoti: bitta tanlov (matn), ko'p tanlov (ro'yxat), erkin "
+"javob (matn)."
 
 #: courses/models.py:219
 msgid "Score percentage (0-100)."
@@ -380,7 +364,6 @@ msgid "Instructor feedback for the submission."
 msgstr "O'qituvchining fikr-mulohazasi."
 
 #: courses/models.py:222
-#, fuzzy
 #| msgid "Phone number"
 msgid "Attempt number"
 msgstr "Telefon raqami"
@@ -394,14 +377,13 @@ msgid "task submissions"
 msgstr "topshiriq javoblari"
 
 #: courses/models.py:301
-#, fuzzy
 #| msgid "Mark as completed"
 msgid "material completion"
 msgstr "Bajarilgan deb belgilash"
 
 #: courses/models.py:302
 msgid "material completions"
-msgstr ""
+msgstr "material yakunlari"
 
 #: courses/templates/courses/detail.html:22
 msgid "Enrolled"
@@ -420,7 +402,6 @@ msgid "Request enrollment"
 msgstr "Ro'yxatdan o'tishni so'rang"
 
 #: courses/templates/courses/detail.html:57
-#, fuzzy
 #| msgid "Courses"
 msgid "Course Lessons"
 msgstr "Kurslar"
@@ -480,7 +461,6 @@ msgstr "So'nggi urinish"
 #: courses/templates/courses/lesson.html:137
 #: courses/templates/courses/submission_history.html:55
 #: courses/templates/courses/submission_history.html:96
-#, fuzzy
 #| msgid "Password"
 msgid "Passed"
 msgstr "Parol"
@@ -516,7 +496,6 @@ msgstr ""
 "Barcha 3 urinish ishlatildi. Yordam uchun o'qituvchiga murojaat qiling."
 
 #: courses/templates/courses/lesson.html:184
-#, fuzzy
 #| msgid "You have used all 3 attempts for this task."
 msgid "You've reached the maximum number of attempts for this task."
 msgstr "Siz ushbu topshiriq uchun barcha 3 urinishni ishlatdingiz."
@@ -530,7 +509,6 @@ msgid "No materials have been added yet."
 msgstr "Hali materiallar qo'shilmagan."
 
 #: courses/templates/courses/list.html:9
-#, fuzzy
 #| msgid ""
 #| "Explore available and upcoming learning paths created by the Basirat team."
 msgid "Explore available learning paths and start your journey"
@@ -551,7 +529,6 @@ msgid "Sort: Z-A"
 msgstr "Tartiblash: Z-A"
 
 #: courses/templates/courses/list.html:40
-#, fuzzy
 #| msgid "Courses"
 msgid "Sort: Most Lessons"
 msgstr "Kurslar"
@@ -569,16 +546,16 @@ msgstr "Tozalash"
 #, python-format
 msgid "Found %(counter)s course matching \"%(search_query)s\""
 msgid_plural "Found %(counter)s courses matching \"%(search_query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "\"%(search_query)s\" bo'yicha %(counter)s ta kurs topildi"
+msgstr[1] "\"%(search_query)s\" bo'yicha %(counter)s ta kurs topildi"
 
 #: courses/templates/courses/list.html:81 users/templates/users/home.html:245
-#, fuzzy, python-format
+#, python-format
 #| msgid "Latest Attempt"
 msgid "%(counter)s lesson"
 msgid_plural "%(counter)s lessons"
-msgstr[0] "So'nggi urinish"
-msgstr[1] "So'nggi urinish"
+msgstr[0] "%(counter)s dars"
+msgstr[1] "%(counter)s dars"
 
 #: courses/templates/courses/list.html:90
 msgid "No description available"
@@ -587,19 +564,16 @@ msgstr "Tavsif mavjud emas"
 #: courses/templates/courses/list.html:94
 #: courses/templates/courses/progress_dashboard.html:169
 #: users/templates/users/home.html:111
-#, fuzzy
 #| msgid "View course"
 msgid "View Course"
 msgstr "Kursni ko'rish"
 
 #: courses/templates/courses/list.html:111
-#, fuzzy
 #| msgid "Your Courses"
 msgid "No Courses Found"
 msgstr "Sizning kurslaringiz"
 
 #: courses/templates/courses/list.html:113
-#, fuzzy
 #| msgid "Available"
 msgid "No Courses Available"
 msgstr "Mavjud"
@@ -608,42 +582,39 @@ msgstr "Mavjud"
 msgid ""
 "No courses match your search. Try different keywords or clear the search."
 msgstr ""
+"Qidiruvingizga mos kurs topilmadi. Boshqa kalit so'zlarni sinab ko'ring "
+"yoki qidiruvni tozalang."
 
 #: courses/templates/courses/list.html:120
-#, fuzzy
 #| msgid "Course catalogue is empty at the moment. Please check back later."
 msgid "Course catalog is empty at the moment. Please check back later."
 msgstr "Hozircha kurs katalogi bo'sh. Iltimos, keyinroq qaytib keling."
 
 #: courses/templates/courses/list.html:125
-#, fuzzy
 #| msgid "View course"
 msgid "View All Courses"
 msgstr "Kursni ko'rish"
 
 #: courses/templates/courses/progress_dashboard.html:4
 msgid "My Dashboard"
-msgstr ""
+msgstr "Mening panelim"
 
 #: courses/templates/courses/progress_dashboard.html:10
-#, fuzzy
 #| msgid "Learning resource"
 msgid "My Learning Dashboard"
 msgstr "O'quv materiali"
 
 #: courses/templates/courses/progress_dashboard.html:11
 msgid "Track your progress and continue learning"
-msgstr ""
+msgstr "Rivojlanishingizni kuzating va o'qishni davom ettiring"
 
 #: courses/templates/courses/progress_dashboard.html:20
-#, fuzzy
 #| msgid "Courses"
 msgid "Total Courses"
 msgstr "Kurslar"
 
 #: courses/templates/courses/progress_dashboard.html:34
 #: users/templates/users/home.html:62
-#, fuzzy
 #| msgid "Lessons"
 msgid "Total Lessons"
 msgstr "Darslar"
@@ -654,7 +625,6 @@ msgid "Overall Progress"
 msgstr "Umumiy Jarayon"
 
 #: courses/templates/courses/progress_dashboard.html:105
-#, fuzzy
 #| msgid "Courses"
 msgid "Course Progress"
 msgstr "Kurslar"
@@ -662,10 +632,9 @@ msgstr "Kurslar"
 #: courses/templates/courses/progress_dashboard.html:112
 #, python-format
 msgid "%(completed)s of %(total)s lessons completed"
-msgstr ""
+msgstr "%(total)s darsdan %(completed)s tasi yakunlandi"
 
 #: courses/templates/courses/progress_dashboard.html:128
-#, fuzzy
 #| msgid "Task"
 msgid "Tasks"
 msgstr "Vazifa"
@@ -677,23 +646,20 @@ msgstr "O'qishni Davom Ettirish"
 
 #: courses/templates/courses/progress_dashboard.html:141
 #: users/templates/users/home.html:88
-#, fuzzy
 #| msgid "Lesson"
 msgid "Start Lesson"
 msgstr "Dars"
 
 #: courses/templates/courses/progress_dashboard.html:155
-#, fuzzy
 #| msgid "Completed"
 msgid "Course Completed!"
 msgstr "Bajarildi"
 
 #: courses/templates/courses/progress_dashboard.html:156
 msgid "Congratulations on finishing all lessons"
-msgstr ""
+msgstr "Barcha darslarni tugatganingiz bilan tabriklaymiz"
 
 #: courses/templates/courses/progress_dashboard.html:183
-#, fuzzy
 #| msgid "Browse Courses"
 msgid "No Enrolled Courses"
 msgstr "Kurslarni ko'rish"
@@ -703,6 +669,8 @@ msgid ""
 "You haven't enrolled in any courses yet. Browse available courses and start "
 "your learning journey!"
 msgstr ""
+"Siz hali hech bir kursga yozilmagansiz. Mavjud kurslarni ko'rib chiqing va "
+"o'rganish yo'lingizni boshlang!"
 
 #: courses/templates/courses/progress_dashboard.html:189
 #: courses/templates/courses/submission_history.html:171
@@ -721,18 +689,17 @@ msgid "View all your task submissions, scores, and feedback"
 msgstr "Barcha topshiriqlaringiz, ballaringiz va fikr-mulohazalarni ko'ring"
 
 #: courses/templates/courses/submission_history.html:67
-#, fuzzy, python-format
+#, python-format
 #| msgid "Latest Attempt"
 msgid "%(counter)s attempt"
 msgid_plural "%(counter)s attempts"
-msgstr[0] "So'nggi urinish"
-msgstr[1] "So'nggi urinish"
+msgstr[0] "%(counter)s urinish"
+msgstr[1] "%(counter)s urinish"
 
 #: courses/templates/courses/submission_history.html:83
-#, fuzzy
 #| msgid "Attempts used"
 msgid "Attempt"
-msgstr "Ishlatilgan urinishlar"
+msgstr "Urinish"
 
 #: courses/templates/courses/submission_history.html:120
 #: courses/templates/courses/submit_task.html:103
@@ -774,21 +741,20 @@ msgstr "Ishlatilgan urinishlar"
 
 #: courses/templates/courses/submit_task.html:65
 msgid "This is your first attempt"
-msgstr ""
+msgstr "Bu sizning birinchi urinishingiz"
 
 #: courses/templates/courses/submit_task.html:67
 msgid "You have"
-msgstr ""
+msgstr "Sizda"
 
 #: courses/templates/courses/submit_task.html:67
-#, fuzzy
 #| msgid "Attempts remaining"
 msgid "attempts remaining"
 msgstr "Qolgan urinishlar"
 
 #: courses/templates/courses/submit_task.html:69
 msgid "This is your final attempt"
-msgstr ""
+msgstr "Bu sizning oxirgi urinishingiz"
 
 #: courses/templates/courses/submit_task.html:89
 msgid "Instructions"
@@ -796,7 +762,7 @@ msgstr "Ko'rsatmalar"
 
 #: courses/templates/courses/submit_task.html:116
 msgid "Please correct the following errors:"
-msgstr ""
+msgstr "Iltimos, quyidagi xatolarni tuzating:"
 
 #: courses/templates/courses/submit_task.html:159
 msgid "Type your answer here..."
@@ -804,7 +770,7 @@ msgstr "Javobingizni shu yerga yozing..."
 
 #: courses/templates/courses/submit_task.html:160
 msgid "Write a detailed answer. This will be reviewed by an instructor."
-msgstr ""
+msgstr "Batafsil javob yozing. Bu javob o'qituvchi tomonidan ko'rib chiqiladi."
 
 #: courses/templates/courses/submit_task.html:185
 #: users/templates/users/profile.html:68
@@ -813,26 +779,23 @@ msgstr "Bekor Qilish"
 
 #: courses/views/course.py:76
 msgid "Your enrollment request is already pending or accepted."
-msgstr ""
+msgstr "Ro'yxatdan o'tish so'rovingiz allaqachon kutilmoqda yoki qabul qilingan."
 
 #: courses/views/course.py:78
-#, fuzzy
 #| msgid "Enrollment rejected"
 msgid "Enrollment request submitted."
 msgstr "Ro'yxatdan o'tish rad etildi"
 
 #: courses/views/course.py:92
 msgid "Complete the previous lessons before continuing."
-msgstr ""
+msgstr "Davom etishdan oldin avvalgi darslarni yakunlang."
 
 #: courses/views/course.py:142
-#, fuzzy
 #| msgid "Task materials require a question type."
 msgid "Task materials require submission, not simple completion."
 msgstr "Vazifa materiallari uchun savol turi kerak."
 
 #: courses/views/course.py:146
-#, fuzzy
 #| msgid "Mark as completed"
 msgid "Material marked as complete."
 msgstr "Bajarilgan deb belgilash"
@@ -872,7 +835,7 @@ msgstr ""
 
 #: users/forms.py:13 users/forms.py:27 users/forms.py:41
 msgid "+998901234567"
-msgstr ""
+msgstr "+998901234567"
 
 #: users/forms.py:15 users/forms.py:29 users/forms.py:43 users/forms.py:61
 msgid "Phone number"
@@ -884,35 +847,36 @@ msgstr "Parol"
 
 #: users/forms.py:59
 msgid "Phone Number (any format)"
-msgstr ""
+msgstr "Telefon raqami (istalgan formatda)"
 
 #: users/forms.py:62
 msgid "The number is validated by the phone-number field but no OTP is sent."
 msgstr ""
+"Raqam telefon maydoni orqali tekshiriladi, ammo OTP kodi yuborilmaydi."
 
 #: users/forms.py:74 users/forms.py:76
 msgid "Confirm password"
-msgstr ""
+msgstr "Parolni tasdiqlang"
 
 #: users/forms.py:83
 msgid "Passwords do not match."
-msgstr ""
+msgstr "Parollar mos kelmadi."
 
 #: users/models.py:14
 msgid "Telefon raqami"
-msgstr ""
+msgstr "Telefon raqami"
 
 #: users/models.py:15
 msgid "Telefon raqamingizni kiriting (masalan: +998901234567)"
-msgstr ""
+msgstr "Telefon raqamingizni kiriting (masalan: +998901234567)"
 
 #: users/models.py:19
 msgid "Talaba"
-msgstr ""
+msgstr "Talaba"
 
 #: users/models.py:20
 msgid "Agar foydalanuvchi talaba bo'lsa, belgilang"
-msgstr ""
+msgstr "Agar foydalanuvchi talaba bo'lsa, belgilang"
 
 #: users/templates/404.html:3 users/templates/404.html:13
 msgid "Page Not Found"
@@ -923,16 +887,17 @@ msgid ""
 "Sorry, we couldn't find the page you're looking for. It might have been "
 "moved, deleted, or the URL might be incorrect."
 msgstr ""
+"Kechirasiz, siz izlagan sahifa topilmadi. U ko'chirilgan, o'chirilgan "
+"bo'lishi yoki URL manzili noto'g'ri bo'lishi mumkin."
 
 #: users/templates/404.html:22 users/templates/500.html:22
-#, fuzzy
 #| msgid "Home"
 msgid "Go Home"
 msgstr "Bosh sahifa"
 
 #: users/templates/500.html:3
 msgid "Server Error"
-msgstr ""
+msgstr "Server xatosi"
 
 #: users/templates/500.html:13
 msgid "Internal Server Error"
@@ -943,9 +908,11 @@ msgid ""
 "Something went wrong on our end. We're working to fix it. Please try again "
 "later or contact support if the problem persists."
 msgstr ""
+"Biz tomonda xatolik yuz berdi. Uni tuzatish ustida ishlayapmiz. Iltimos, "
+"keyinroq qayta urinib ko'ring yoki muammo davom etsa qo'llab-quvvatlash "
+"xizmatiga murojaat qiling."
 
 #: users/templates/base.html:7
-#, fuzzy
 #| msgid "Home - Basirat"
 msgid "Basirat"
 msgstr "Bosh sahifa - Basirat"
@@ -961,7 +928,6 @@ msgstr "Boshqaruv Paneli"
 
 #: users/templates/base.html:45 users/templates/base.html:104
 #: users/templates/users/profile.html:194
-#, fuzzy
 #| msgid "task submissions"
 msgid "My Submissions"
 msgstr "Mening Topshiriqlarim"
@@ -1001,7 +967,6 @@ msgid "All rights reserved."
 msgstr "Barcha huquqlar himoyalangan."
 
 #: users/templates/users/create_account.html:6
-#, fuzzy
 #| msgid "Create account"
 msgid "Create an account"
 msgstr "Hisob ochish"
@@ -1011,9 +976,10 @@ msgid ""
 "No phone verification is performed here; we simply record the number you "
 "type."
 msgstr ""
+"Bu yerda telefon tasdiqlovi amalga oshirilmaydi; biz faqat siz kiritgan "
+"raqamni saqlaymiz."
 
 #: users/templates/users/create_account.html:47
-#, fuzzy
 #| msgid "Create account"
 msgid "Already have an account?"
 msgstr "Hisob ochish"
@@ -1028,10 +994,10 @@ msgid "Home - Basirat"
 msgstr "Bosh sahifa - Basirat"
 
 #: users/templates/users/home.html:14
-#, fuzzy, python-format
+#, python-format
 #| msgid "Welcome, %(username)s!"
 msgid "Welcome back, %(name)s!"
-msgstr "Xush kelibsiz, %(username)s!"
+msgstr "Yana xush kelibsiz, %(name)s!"
 
 #: users/templates/users/home.html:16
 msgid "Continue your learning journey and achieve your goals"
@@ -1164,13 +1130,11 @@ msgid "Enter your phone number (e.g. +998901234567)"
 msgstr "Telefon raqamingizni kiriting (masalan: +998901234567)"
 
 #: users/templates/users/login.html:39
-#, fuzzy
 #| msgid "Create account"
 msgid "Need an account?"
 msgstr "Hisob ochish"
 
 #: users/templates/users/login.html:40
-#, fuzzy
 #| msgid "Create account"
 msgid "Create one"
 msgstr "Hisob ochish"
@@ -1181,7 +1145,7 @@ msgstr "Profilni Tahrirlash"
 
 #: users/templates/users/profile.html:50
 msgid "Update Your Information"
-msgstr ""
+msgstr "Ma'lumotlaringizni yangilang"
 
 #: users/templates/users/profile.html:55
 msgid "First Name"
@@ -1200,57 +1164,49 @@ msgid "of"
 msgstr "dan"
 
 #: users/templates/users/profile.html:108
-#, fuzzy
 #| msgid "task submissions"
 msgid "Task Submissions"
 msgstr "topshiriq javoblari"
 
 #: users/templates/users/profile.html:110
-#, fuzzy
 #| msgid "Password"
 msgid "passed"
 msgstr "Parol"
 
 #: users/templates/users/profile.html:140
-#, fuzzy
 #| msgid "task submissions"
 msgid "Recent Submissions"
 msgstr "topshiriq javoblari"
 
 #: users/templates/users/profile.html:164
-#, fuzzy
 #| msgid "No Submissions Yet"
 msgid "No submissions yet"
 msgstr "Hali topshiriqlar yo'q"
 
 #: users/templates/users/profile.html:172
-#, fuzzy
 #| msgid "Quick Actions"
 msgid "Quick Links"
 msgstr "Tezkor amallar"
 
 #: users/templates/users/profile.html:183
 msgid "View your learning progress"
-msgstr ""
+msgstr "O'qishdagi rivojlanishingizni ko'ring"
 
 #: users/templates/users/profile.html:195
-#, fuzzy
 #| msgid "task submissions"
 msgid "Review all task submissions"
 msgstr "topshiriq javoblari"
 
 #: users/templates/users/profile.html:207
 msgid "Find new courses to enroll"
-msgstr ""
+msgstr "Yozilish uchun yangi kurslarni toping"
 
 #: users/templates/users/profile.html:258
-#, fuzzy
 #| msgid "Student"
 msgid "Total Students"
 msgstr "Talaba"
 
 #: users/templates/users/profile.html:286
-#, fuzzy
 #| msgid "Pending Review"
 msgid "Pending Reviews"
 msgstr "Ko'rib chiqilmoqda"
@@ -1403,7 +1359,6 @@ msgstr[1] ""
 #: venv/lib/python3.12/site-packages/django/core/validators.py:535
 #: venv/lib/python3.12/site-packages/django/forms/fields.py:359
 #: venv/lib/python3.12/site-packages/django/forms/fields.py:398
-#, fuzzy
 #| msgid "Phone number"
 msgid "Enter a number."
 msgstr "Telefon raqami"
@@ -1558,7 +1513,6 @@ msgid "“%(value)s” value must be a decimal number."
 msgstr ""
 
 #: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1698
-#, fuzzy
 #| msgid "Phone number"
 msgid "Decimal number"
 msgstr "Telefon raqami"
@@ -1736,7 +1690,6 @@ msgid "This field is required."
 msgstr "Bu maydon to'ldirilishi shart."
 
 #: venv/lib/python3.12/site-packages/django/forms/fields.py:308
-#, fuzzy
 #| msgid "Phone number"
 msgid "Enter a whole number."
 msgstr "Telefon raqami"
@@ -1808,7 +1761,6 @@ msgid "Enter a list of values."
 msgstr ""
 
 #: venv/lib/python3.12/site-packages/django/forms/fields.py:1090
-#, fuzzy
 #| msgid "Mark as completed"
 msgid "Enter a complete value."
 msgstr "Bajarilgan deb belgilash"
@@ -2028,13 +1980,11 @@ msgid "Fri"
 msgstr ""
 
 #: venv/lib/python3.12/site-packages/django/utils/dates.py:21
-#, fuzzy
 #| msgid "Status:"
 msgid "Sat"
 msgstr "Holat:"
 
 #: venv/lib/python3.12/site-packages/django/utils/dates.py:22
-#, fuzzy
 #| msgid "Student"
 msgid "Sun"
 msgstr "Talaba"
@@ -2080,7 +2030,6 @@ msgid "October"
 msgstr ""
 
 #: venv/lib/python3.12/site-packages/django/utils/dates.py:35
-#, fuzzy
 #| msgid "Phone number"
 msgid "November"
 msgstr "Telefon raqami"
@@ -2248,7 +2197,6 @@ msgid "October"
 msgstr ""
 
 #: venv/lib/python3.12/site-packages/django/utils/dates.py:77
-#, fuzzy
 #| msgid "Phone number"
 msgctxt "alt. month"
 msgid "November"
@@ -2467,7 +2415,6 @@ msgid ""
 msgstr ""
 
 #: venv/lib/python3.12/site-packages/django/views/templates/default_urlconf.html:217
-#, fuzzy
 #| msgid "Swagger API documentation"
 msgid "Django Documentation"
 msgstr "Swagger API hujjatlari"

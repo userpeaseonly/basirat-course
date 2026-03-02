@@ -50,7 +50,7 @@
                 {% endif %}
                 <div>
                     <p class="text-gray-600 font-medium">{% trans "Registered on:" %}</p>
-                    <p class="text-gray-800 text-lg">{{ user.date_joined|date:"d.m.Y H:i" }}</p>
+                    <p class="text-gray-800 text-lg">{{ user.date_joined|date:"SHORT_DATETIME_FORMAT" }}</p>
                 </div>
             </div>
         </div>

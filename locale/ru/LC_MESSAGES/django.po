@@ -26,13 +26,11 @@ msgid "Russian"
 msgstr "Русский"
 
 #: courses/admin.py:16
-#, fuzzy
 #| msgid "Administrator"
 msgid "Basirat LMS Administration"
 msgstr "Администратор"
 
 #: courses/admin.py:17
-#, fuzzy
 #| msgid "Home - Basirat"
 msgid "Basirat Admin"
 msgstr "Главная - Basirat"
@@ -54,7 +52,6 @@ msgid "Lessons"
 msgstr "Уроки"
 
 #: courses/admin.py:93
-#, fuzzy
 #| msgid "Student"
 msgid "Students"
 msgstr "Студент"
@@ -68,13 +65,11 @@ msgid "Materials"
 msgstr "Материалы"
 
 #: courses/admin.py:140
-#, fuzzy
 #| msgid "Mark as completed"
 msgid "Material Information"
 msgstr "Отметить как выполненное"
 
 #: courses/admin.py:143
-#, fuzzy
 #| msgid "Learning resource"
 msgid "Learning Content"
 msgstr "Учебный материал"
@@ -92,23 +87,20 @@ msgid "For task materials only. Leave empty for learning materials."
 msgstr "Только для заданий. Оставьте пустым для учебных материалов."
 
 #: courses/admin.py:167
-#, fuzzy
 #| msgid "Enrollment pending"
 msgid "Enrollment Details"
 msgstr "Запрос на запись ожидает"
 
 #: courses/admin.py:178 courses/admin.py:223 courses/admin.py:275
 msgid "(No name)"
-msgstr ""
+msgstr "(Без имени)"
 
 #: courses/admin.py:179 courses/admin.py:224 courses/admin.py:276
-#, fuzzy
 #| msgid "Student"
 msgid "Student Name"
 msgstr "Студент"
 
 #: courses/admin.py:184
-#, fuzzy
 #| msgid "Phone number"
 msgid "Phone Number"
 msgstr "Номер телефона"
@@ -123,19 +115,17 @@ msgid "Mark selected enrollments as accepted"
 msgstr "Отметить выбранные регистрации как принятые"
 
 #: courses/admin.py:203
-#, fuzzy, python-brace-format
+#, python-brace-format
 #| msgid "Enrollment rejected"
 msgid "{count} enrollments rejected"
-msgstr "Запись отклонена"
+msgstr "{count} записей отклонено"
 
 #: courses/admin.py:204
-#, fuzzy
 #| msgid "Enrollment rejected"
 msgid "Mark selected enrollments as rejected"
-msgstr "Запись отклонена"
+msgstr "Отметить выбранные записи как отклоненные"
 
 #: courses/admin.py:217
-#, fuzzy
 #| msgid "User Details"
 msgid "Completion Details"
 msgstr "Информация о пользователе"
@@ -153,13 +143,11 @@ msgid "Course"
 msgstr "Курс"
 
 #: courses/admin.py:261
-#, fuzzy
 #| msgid "Submission Info"
 msgid "Submission Information"
 msgstr "Информация об ответе"
 
 #: courses/admin.py:264
-#, fuzzy
 #| msgid "Submit Answer"
 msgid "Student Answer"
 msgstr "Отправить ответ"
@@ -200,7 +188,7 @@ msgstr "Отметить как 100 процентов зачтено"
 
 #: courses/forms.py:27
 msgid "Select an answer"
-msgstr ""
+msgstr "Выберите ответ"
 
 #: courses/forms.py:34
 msgid "Select all that apply"
@@ -208,7 +196,7 @@ msgstr "Выберите все подходящие"
 
 #: courses/forms.py:40
 msgid "Your answer"
-msgstr ""
+msgstr "Ваш ответ"
 
 #: courses/models.py:9 courses/models.py:37
 msgid "Title"
@@ -227,13 +215,11 @@ msgid "Is published"
 msgstr "Опубликовано"
 
 #: courses/models.py:18
-#, fuzzy
 #| msgid "Course"
 msgid "course"
 msgstr "Курс"
 
 #: courses/models.py:19
-#, fuzzy
 #| msgid "Courses"
 msgid "courses"
 msgstr "Курсы"
@@ -249,13 +235,11 @@ msgid "Order"
 msgstr "Порядок"
 
 #: courses/models.py:47
-#, fuzzy
 #| msgid "Lesson"
 msgid "lesson"
 msgstr "Урок"
 
 #: courses/models.py:48
-#, fuzzy
 #| msgid "Lessons"
 msgid "lessons"
 msgstr "Уроки"
@@ -298,7 +282,7 @@ msgstr "Структурированные данные для вопросов 
 
 #: courses/models.py:113
 msgid "material"
-msgstr ""
+msgstr "материал"
 
 #: courses/models.py:114
 msgid "materials"
@@ -326,15 +310,15 @@ msgstr "Учебный материал должен включать текст
 
 #: courses/models.py:146 users/templates/users/profile.html:158
 msgid "Pending"
-msgstr ""
+msgstr "В ожидании"
 
 #: courses/models.py:147
 msgid "Accepted"
-msgstr ""
+msgstr "Принято"
 
 #: courses/models.py:148
 msgid "Rejected"
-msgstr ""
+msgstr "Отклонено"
 
 #: courses/models.py:161 courses/models.py:208 courses/models.py:295
 #: users/templates/base.html:50 users/templates/base.html:115
@@ -343,13 +327,11 @@ msgid "Student"
 msgstr "Студент"
 
 #: courses/models.py:169
-#, fuzzy
 #| msgid "Request enrollment"
 msgid "enrollment"
 msgstr "Запросить запись"
 
 #: courses/models.py:170
-#, fuzzy
 #| msgid "Request enrollment"
 msgid "enrollments"
 msgstr "Запросить запись"
@@ -371,6 +353,8 @@ msgid ""
 "Student answer data: single choice (string), multiple choice (array), free "
 "response (text)."
 msgstr ""
+"Данные ответа студента: один выбор (строка), множественный выбор (массив), "
+"свободный ответ (текст)."
 
 #: courses/models.py:219
 msgid "Score percentage (0-100)."
@@ -381,7 +365,6 @@ msgid "Instructor feedback for the submission."
 msgstr "Отзыв преподавателя о работе."
 
 #: courses/models.py:222
-#, fuzzy
 #| msgid "Phone number"
 msgid "Attempt number"
 msgstr "Номер телефона"
@@ -395,14 +378,13 @@ msgid "task submissions"
 msgstr "ответы на задания"
 
 #: courses/models.py:301
-#, fuzzy
 #| msgid "Mark as completed"
 msgid "material completion"
 msgstr "Отметить как выполненное"
 
 #: courses/models.py:302
 msgid "material completions"
-msgstr ""
+msgstr "завершения материалов"
 
 #: courses/templates/courses/detail.html:22
 msgid "Enrolled"
@@ -421,7 +403,6 @@ msgid "Request enrollment"
 msgstr "Запросить запись"
 
 #: courses/templates/courses/detail.html:57
-#, fuzzy
 #| msgid "Courses"
 msgid "Course Lessons"
 msgstr "Курсы"
@@ -481,7 +462,6 @@ msgstr "Последняя попытка"
 #: courses/templates/courses/lesson.html:137
 #: courses/templates/courses/submission_history.html:55
 #: courses/templates/courses/submission_history.html:96
-#, fuzzy
 #| msgid "Password"
 msgid "Passed"
 msgstr "Пароль"
@@ -516,7 +496,6 @@ msgid "All 3 attempts used. Contact instructor for help."
 msgstr "Все 3 попытки использованы. Обратитесь к преподавателю за помощью."
 
 #: courses/templates/courses/lesson.html:184
-#, fuzzy
 #| msgid "You have used all 3 attempts for this task."
 msgid "You've reached the maximum number of attempts for this task."
 msgstr "Вы использовали все 3 попытки для этого задания."
@@ -530,7 +509,6 @@ msgid "No materials have been added yet."
 msgstr "Материалы еще не добавлены."
 
 #: courses/templates/courses/list.html:9
-#, fuzzy
 #| msgid ""
 #| "Explore available and upcoming learning paths created by the Basirat team."
 msgid "Explore available learning paths and start your journey"
@@ -550,7 +528,6 @@ msgid "Sort: Z-A"
 msgstr "Сортировка: Я-А"
 
 #: courses/templates/courses/list.html:40
-#, fuzzy
 #| msgid "Courses"
 msgid "Sort: Most Lessons"
 msgstr "Курсы"
@@ -568,18 +545,18 @@ msgstr "Очистить"
 #, python-format
 msgid "Found %(counter)s course matching \"%(search_query)s\""
 msgid_plural "Found %(counter)s courses matching \"%(search_query)s\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Найден %(counter)s курс по запросу \"%(search_query)s\""
+msgstr[1] "Найдено %(counter)s курса по запросу \"%(search_query)s\""
+msgstr[2] "Найдено %(counter)s курсов по запросу \"%(search_query)s\""
 
 #: courses/templates/courses/list.html:81 users/templates/users/home.html:245
-#, fuzzy, python-format
+#, python-format
 #| msgid "Latest Attempt"
 msgid "%(counter)s lesson"
 msgid_plural "%(counter)s lessons"
-msgstr[0] "Последняя попытка"
-msgstr[1] "Последняя попытка"
-msgstr[2] "Последняя попытка"
+msgstr[0] "%(counter)s урок"
+msgstr[1] "%(counter)s урока"
+msgstr[2] "%(counter)s уроков"
 
 #: courses/templates/courses/list.html:90
 msgid "No description available"
@@ -588,19 +565,16 @@ msgstr "Описание недоступно"
 #: courses/templates/courses/list.html:94
 #: courses/templates/courses/progress_dashboard.html:169
 #: users/templates/users/home.html:111
-#, fuzzy
 #| msgid "View course"
 msgid "View Course"
 msgstr "Открыть курс"
 
 #: courses/templates/courses/list.html:111
-#, fuzzy
 #| msgid "Your Courses"
 msgid "No Courses Found"
 msgstr "Ваши курсы"
 
 #: courses/templates/courses/list.html:113
-#, fuzzy
 #| msgid "Available"
 msgid "No Courses Available"
 msgstr "Доступно"
@@ -609,42 +583,39 @@ msgstr "Доступно"
 msgid ""
 "No courses match your search. Try different keywords or clear the search."
 msgstr ""
+"По вашему запросу курсы не найдены. Попробуйте другие ключевые слова или "
+"очистите поиск."
 
 #: courses/templates/courses/list.html:120
-#, fuzzy
 #| msgid "Course catalogue is empty at the moment. Please check back later."
 msgid "Course catalog is empty at the moment. Please check back later."
 msgstr "В настоящее время каталог курсов пуст. Пожалуйста, загляните позже."
 
 #: courses/templates/courses/list.html:125
-#, fuzzy
 #| msgid "View course"
 msgid "View All Courses"
 msgstr "Открыть курс"
 
 #: courses/templates/courses/progress_dashboard.html:4
 msgid "My Dashboard"
-msgstr ""
+msgstr "Моя панель"
 
 #: courses/templates/courses/progress_dashboard.html:10
-#, fuzzy
 #| msgid "Learning resource"
 msgid "My Learning Dashboard"
 msgstr "Учебный материал"
 
 #: courses/templates/courses/progress_dashboard.html:11
 msgid "Track your progress and continue learning"
-msgstr ""
+msgstr "Отслеживайте свой прогресс и продолжайте обучение"
 
 #: courses/templates/courses/progress_dashboard.html:20
-#, fuzzy
 #| msgid "Courses"
 msgid "Total Courses"
 msgstr "Курсы"
 
 #: courses/templates/courses/progress_dashboard.html:34
 #: users/templates/users/home.html:62
-#, fuzzy
 #| msgid "Lessons"
 msgid "Total Lessons"
 msgstr "Уроки"
@@ -655,7 +626,6 @@ msgid "Overall Progress"
 msgstr "Общий прогресс"
 
 #: courses/templates/courses/progress_dashboard.html:105
-#, fuzzy
 #| msgid "Courses"
 msgid "Course Progress"
 msgstr "Курсы"
@@ -663,10 +633,9 @@ msgstr "Курсы"
 #: courses/templates/courses/progress_dashboard.html:112
 #, python-format
 msgid "%(completed)s of %(total)s lessons completed"
-msgstr ""
+msgstr "Завершено %(completed)s из %(total)s уроков"
 
 #: courses/templates/courses/progress_dashboard.html:128
-#, fuzzy
 #| msgid "Task"
 msgid "Tasks"
 msgstr "Задание"
@@ -678,23 +647,20 @@ msgstr "Продолжить обучение"
 
 #: courses/templates/courses/progress_dashboard.html:141
 #: users/templates/users/home.html:88
-#, fuzzy
 #| msgid "Lesson"
 msgid "Start Lesson"
 msgstr "Урок"
 
 #: courses/templates/courses/progress_dashboard.html:155
-#, fuzzy
 #| msgid "Completed"
 msgid "Course Completed!"
 msgstr "Выполнено"
 
 #: courses/templates/courses/progress_dashboard.html:156
 msgid "Congratulations on finishing all lessons"
-msgstr ""
+msgstr "Поздравляем с завершением всех уроков"
 
 #: courses/templates/courses/progress_dashboard.html:183
-#, fuzzy
 #| msgid "Browse Courses"
 msgid "No Enrolled Courses"
 msgstr "Просмотреть курсы"
@@ -704,6 +670,8 @@ msgid ""
 "You haven't enrolled in any courses yet. Browse available courses and start "
 "your learning journey!"
 msgstr ""
+"Вы пока не записались ни на один курс. Просмотрите доступные курсы и "
+"начните свой путь обучения!"
 
 #: courses/templates/courses/progress_dashboard.html:189
 #: courses/templates/courses/submission_history.html:171
@@ -722,19 +690,18 @@ msgid "View all your task submissions, scores, and feedback"
 msgstr "Просмотрите все ваши отправки заданий, баллы и отзывы"
 
 #: courses/templates/courses/submission_history.html:67
-#, fuzzy, python-format
+#, python-format
 #| msgid "Latest Attempt"
 msgid "%(counter)s attempt"
 msgid_plural "%(counter)s attempts"
-msgstr[0] "Последняя попытка"
-msgstr[1] "Последняя попытка"
-msgstr[2] "Последняя попытка"
+msgstr[0] "%(counter)s попытка"
+msgstr[1] "%(counter)s попытки"
+msgstr[2] "%(counter)s попыток"
 
 #: courses/templates/courses/submission_history.html:83
-#, fuzzy
 #| msgid "Attempts used"
 msgid "Attempt"
-msgstr "Использовано попыток"
+msgstr "Попытка"
 
 #: courses/templates/courses/submission_history.html:120
 #: courses/templates/courses/submit_task.html:103
@@ -776,21 +743,20 @@ msgstr "Использовано попыток"
 
 #: courses/templates/courses/submit_task.html:65
 msgid "This is your first attempt"
-msgstr ""
+msgstr "Это ваша первая попытка"
 
 #: courses/templates/courses/submit_task.html:67
 msgid "You have"
-msgstr ""
+msgstr "У вас"
 
 #: courses/templates/courses/submit_task.html:67
-#, fuzzy
 #| msgid "Attempts remaining"
 msgid "attempts remaining"
 msgstr "Осталось попыток"
 
 #: courses/templates/courses/submit_task.html:69
 msgid "This is your final attempt"
-msgstr ""
+msgstr "Это ваша последняя попытка"
 
 #: courses/templates/courses/submit_task.html:89
 msgid "Instructions"
@@ -798,7 +764,7 @@ msgstr "Инструкции"
 
 #: courses/templates/courses/submit_task.html:116
 msgid "Please correct the following errors:"
-msgstr ""
+msgstr "Пожалуйста, исправьте следующие ошибки:"
 
 #: courses/templates/courses/submit_task.html:159
 msgid "Type your answer here..."
@@ -806,7 +772,7 @@ msgstr "Напишите ваш ответ здесь..."
 
 #: courses/templates/courses/submit_task.html:160
 msgid "Write a detailed answer. This will be reviewed by an instructor."
-msgstr ""
+msgstr "Напишите подробный ответ. Он будет проверен преподавателем."
 
 #: courses/templates/courses/submit_task.html:185
 #: users/templates/users/profile.html:68
@@ -815,26 +781,23 @@ msgstr "Отмена"
 
 #: courses/views/course.py:76
 msgid "Your enrollment request is already pending or accepted."
-msgstr ""
+msgstr "Ваш запрос на запись уже ожидает рассмотрения или принят."
 
 #: courses/views/course.py:78
-#, fuzzy
 #| msgid "Enrollment rejected"
 msgid "Enrollment request submitted."
 msgstr "Запись отклонена"
 
 #: courses/views/course.py:92
 msgid "Complete the previous lessons before continuing."
-msgstr ""
+msgstr "Завершите предыдущие уроки перед продолжением."
 
 #: courses/views/course.py:142
-#, fuzzy
 #| msgid "Task materials require a question type."
 msgid "Task materials require submission, not simple completion."
 msgstr "Материалы заданий требуют указания типа вопроса."
 
 #: courses/views/course.py:146
-#, fuzzy
 #| msgid "Mark as completed"
 msgid "Material marked as complete."
 msgstr "Отметить как выполненное"
@@ -873,7 +836,7 @@ msgstr ""
 
 #: users/forms.py:13 users/forms.py:27 users/forms.py:41
 msgid "+998901234567"
-msgstr ""
+msgstr "+998901234567"
 
 #: users/forms.py:15 users/forms.py:29 users/forms.py:43 users/forms.py:61
 msgid "Phone number"
@@ -885,35 +848,35 @@ msgstr "Пароль"
 
 #: users/forms.py:59
 msgid "Phone Number (any format)"
-msgstr ""
+msgstr "Номер телефона (в любом формате)"
 
 #: users/forms.py:62
 msgid "The number is validated by the phone-number field but no OTP is sent."
-msgstr ""
+msgstr "Номер проверяется полем телефона, но OTP-код не отправляется."
 
 #: users/forms.py:74 users/forms.py:76
 msgid "Confirm password"
-msgstr ""
+msgstr "Подтвердите пароль"
 
 #: users/forms.py:83
 msgid "Passwords do not match."
-msgstr ""
+msgstr "Пароли не совпадают."
 
 #: users/models.py:14
 msgid "Telefon raqami"
-msgstr ""
+msgstr "Номер телефона"
 
 #: users/models.py:15
 msgid "Telefon raqamingizni kiriting (masalan: +998901234567)"
-msgstr ""
+msgstr "Введите ваш номер телефона (например: +998901234567)"
 
 #: users/models.py:19
 msgid "Talaba"
-msgstr ""
+msgstr "Студент"
 
 #: users/models.py:20
 msgid "Agar foydalanuvchi talaba bo'lsa, belgilang"
-msgstr ""
+msgstr "Отметьте, если пользователь является студентом"
 
 #: users/templates/404.html:3 users/templates/404.html:13
 msgid "Page Not Found"
@@ -924,16 +887,17 @@ msgid ""
 "Sorry, we couldn't find the page you're looking for. It might have been "
 "moved, deleted, or the URL might be incorrect."
 msgstr ""
+"Извините, мы не смогли найти запрошенную страницу. Возможно, она была "
+"перемещена, удалена или URL указан неверно."
 
 #: users/templates/404.html:22 users/templates/500.html:22
-#, fuzzy
 #| msgid "Home"
 msgid "Go Home"
 msgstr "Главная"
 
 #: users/templates/500.html:3
 msgid "Server Error"
-msgstr ""
+msgstr "Ошибка сервера"
 
 #: users/templates/500.html:13
 msgid "Internal Server Error"
@@ -944,9 +908,10 @@ msgid ""
 "Something went wrong on our end. We're working to fix it. Please try again "
 "later or contact support if the problem persists."
 msgstr ""
+"На нашей стороне произошла ошибка. Мы работаем над исправлением. Пожалуйста, "
+"повторите попытку позже или обратитесь в поддержку, если проблема сохраняется."
 
 #: users/templates/base.html:7
-#, fuzzy
 #| msgid "Home - Basirat"
 msgid "Basirat"
 msgstr "Главная - Basirat"
@@ -962,7 +927,6 @@ msgstr "Панель управления"
 
 #: users/templates/base.html:45 users/templates/base.html:104
 #: users/templates/users/profile.html:194
-#, fuzzy
 #| msgid "task submissions"
 msgid "My Submissions"
 msgstr "Мои представления"
@@ -1002,7 +966,6 @@ msgid "All rights reserved."
 msgstr "Все права защищены."
 
 #: users/templates/users/create_account.html:6
-#, fuzzy
 #| msgid "Create account"
 msgid "Create an account"
 msgstr "Создать аккаунт"
@@ -1012,9 +975,10 @@ msgid ""
 "No phone verification is performed here; we simply record the number you "
 "type."
 msgstr ""
+"Здесь не выполняется проверка телефона; мы просто сохраняем введенный вами "
+"номер."
 
 #: users/templates/users/create_account.html:47
-#, fuzzy
 #| msgid "Create account"
 msgid "Already have an account?"
 msgstr "Создать аккаунт"
@@ -1029,10 +993,10 @@ msgid "Home - Basirat"
 msgstr "Главная - Basirat"
 
 #: users/templates/users/home.html:14
-#, fuzzy, python-format
+#, python-format
 #| msgid "Welcome, %(username)s!"
 msgid "Welcome back, %(name)s!"
-msgstr "Добро пожаловать, %(username)s!"
+msgstr "С возвращением, %(name)s!"
 
 #: users/templates/users/home.html:16
 msgid "Continue your learning journey and achieve your goals"
@@ -1165,13 +1129,11 @@ msgid "Enter your phone number (e.g. +998901234567)"
 msgstr "Введите номер телефона (например, +998901234567)"
 
 #: users/templates/users/login.html:39
-#, fuzzy
 #| msgid "Create account"
 msgid "Need an account?"
 msgstr "Создать аккаунт"
 
 #: users/templates/users/login.html:40
-#, fuzzy
 #| msgid "Create account"
 msgid "Create one"
 msgstr "Создать аккаунт"
@@ -1182,7 +1144,7 @@ msgstr "Редактировать профиль"
 
 #: users/templates/users/profile.html:50
 msgid "Update Your Information"
-msgstr ""
+msgstr "Обновите ваши данные"
 
 #: users/templates/users/profile.html:55
 msgid "First Name"
@@ -1201,57 +1163,49 @@ msgid "of"
 msgstr "из"
 
 #: users/templates/users/profile.html:108
-#, fuzzy
 #| msgid "task submissions"
 msgid "Task Submissions"
 msgstr "ответы на задания"
 
 #: users/templates/users/profile.html:110
-#, fuzzy
 #| msgid "Password"
 msgid "passed"
 msgstr "Пароль"
 
 #: users/templates/users/profile.html:140
-#, fuzzy
 #| msgid "task submissions"
 msgid "Recent Submissions"
 msgstr "ответы на задания"
 
 #: users/templates/users/profile.html:164
-#, fuzzy
 #| msgid "No Submissions Yet"
 msgid "No submissions yet"
 msgstr "Пока нет отправок"
 
 #: users/templates/users/profile.html:172
-#, fuzzy
 #| msgid "Quick Actions"
 msgid "Quick Links"
 msgstr "Быстрые действия"
 
 #: users/templates/users/profile.html:183
 msgid "View your learning progress"
-msgstr ""
+msgstr "Посмотрите свой прогресс обучения"
 
 #: users/templates/users/profile.html:195
-#, fuzzy
 #| msgid "task submissions"
 msgid "Review all task submissions"
 msgstr "ответы на задания"
 
 #: users/templates/users/profile.html:207
 msgid "Find new courses to enroll"
-msgstr ""
+msgstr "Найдите новые курсы для записи"
 
 #: users/templates/users/profile.html:258
-#, fuzzy
 #| msgid "Student"
 msgid "Total Students"
 msgstr "Студент"
 
 #: users/templates/users/profile.html:286
-#, fuzzy
 #| msgid "Pending Review"
 msgid "Pending Reviews"
 msgstr "На проверке"
@@ -1406,7 +1360,6 @@ msgstr[2] ""
 #: venv/lib/python3.12/site-packages/django/core/validators.py:535
 #: venv/lib/python3.12/site-packages/django/forms/fields.py:359
 #: venv/lib/python3.12/site-packages/django/forms/fields.py:398
-#, fuzzy
 #| msgid "Phone number"
 msgid "Enter a number."
 msgstr "Номер телефона"
@@ -1564,7 +1517,6 @@ msgid "“%(value)s” value must be a decimal number."
 msgstr ""
 
 #: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:1698
-#, fuzzy
 #| msgid "Phone number"
 msgid "Decimal number"
 msgstr "Номер телефона"
@@ -1742,7 +1694,6 @@ msgid "This field is required."
 msgstr "Это поле обязательно."
 
 #: venv/lib/python3.12/site-packages/django/forms/fields.py:308
-#, fuzzy
 #| msgid "Phone number"
 msgid "Enter a whole number."
 msgstr "Номер телефона"
@@ -1815,7 +1766,6 @@ msgid "Enter a list of values."
 msgstr ""
 
 #: venv/lib/python3.12/site-packages/django/forms/fields.py:1090
-#, fuzzy
 #| msgid "Mark as completed"
 msgid "Enter a complete value."
 msgstr "Отметить как выполненное"
@@ -2038,13 +1988,11 @@ msgid "Fri"
 msgstr ""
 
 #: venv/lib/python3.12/site-packages/django/utils/dates.py:21
-#, fuzzy
 #| msgid "Status:"
 msgid "Sat"
 msgstr "Статус:"
 
 #: venv/lib/python3.12/site-packages/django/utils/dates.py:22
-#, fuzzy
 #| msgid "Student"
 msgid "Sun"
 msgstr "Студент"
@@ -2090,7 +2038,6 @@ msgid "October"
 msgstr ""
 
 #: venv/lib/python3.12/site-packages/django/utils/dates.py:35
-#, fuzzy
 #| msgid "Phone number"
 msgid "November"
 msgstr "Номер телефона"
@@ -2258,7 +2205,6 @@ msgid "October"
 msgstr ""
 
 #: venv/lib/python3.12/site-packages/django/utils/dates.py:77
-#, fuzzy
 #| msgid "Phone number"
 msgctxt "alt. month"
 msgid "November"
@@ -2483,7 +2429,6 @@ msgid ""
 msgstr ""
 
 #: venv/lib/python3.12/site-packages/django/views/templates/default_urlconf.html:217
-#, fuzzy
 #| msgid "Swagger API documentation"
 msgid "Django Documentation"
 msgstr "Документация Swagger API"
